@@ -25,8 +25,8 @@ The ETL pipeline is designed as a modular system where each block handles a spec
 | Block | Input | Processing Responsibility | Output | Possible Failure |
 | :--- | :--- | :--- | :--- | :--- |
 | **Extract** | `sales_cali.csv`, `sales_bogota.json`, `sales_medellin.xml`, and reference CSV files | Read heterogeneous transactional files and reference tables, converting each raw format into a `pandas.DataFrame` with a standardized schema without performing business calculations. | List of raw `pandas.DataFrame` objects under a unified schema | File not found, incorrect file paths, or corrupted file syntax (e.g., malformed XML/JSON) |
-| **Profile** | Raw transactional DataFrames | Inspect the combined extracted data to detect total row counts, data types, missing values, duplicate `sale_line_id` values, invalid quantities/prices ($\le 0$), and date anomalies. | Console summary and log report detailing data quality findings | Memory overflow or unhandled exceptions due to unexpected null structures |
-| **Clean / Harmonize** | Raw DataFrames and profiling findings | Apply data quality rules: remove whitespace, standardize text casing, cast date strings to uniform datetime types, convert numerical values, drop duplicate `sale_line_id`s, and reject invalid rows ($\le 0$). | Cleaned and harmonized DataFrame (`clean_transactions`) | Over-filtering leading to unexpected loss of valid transactional records |
+| **Profile** | Raw transactional DataFrames | Inspect the combined extracted data to detect total row counts, data types, missing values, duplicate `sale_line_id` values, invalid quantities/prices (<= 0), and date anomalies. | Console summary and log report detailing data quality findings | Memory overflow or unhandled exceptions due to unexpected null structures |
+| **Clean / Harmonize** | Raw DataFrames and profiling findings | Apply data quality rules: remove whitespace, standardize text casing, cast date strings to uniform datetime types, convert numerical values, drop duplicate `sale_line_id`s, and reject invalid rows (<= 0). | Cleaned and harmonized DataFrame (`clean_transactions`) | Over-filtering leading to unexpected loss of valid transactional records |
 | **Transform / Integrate** | `clean_transactions` + Master tables (`products`, `stores`, `promotions`, `monthly_targets`) | Perform relational `JOIN`s with reference tables, calculate `gross_sales`, `discount_amount`, `net_sales`, and extract temporal attributes (`month`, `week`, `day_name`). | Fully integrated and enriched analytical DataFrame | Key mismatch during `JOIN`s (e.g., unmapped `product_id` or `store_id`) |
 | **Validate** | Integrated analytical DataFrame | Enforce data quality assertion checks before loading: verify `sale_line_id` uniqueness, ensure no null IDs/dates, validate positive sales figures, and confirm foreign key integrity. | Validation pass confirmation or execution halt log | Critical assertion failure (e.g., negative `net_sales` or unmapped foreign keys) stopping the pipeline |
 | **Load** | Validated analytical DataFrame | Export the clean integrated dataset to `data/processed/integrated_sales.csv` and insert all records into the `sales_analytics` table inside the SQLite database (`retail_analytics.db`). | Processed CSV file and populated SQLite database table | Database lock, file permission errors, or SQL schema creation failures |
@@ -56,8 +56,8 @@ Upon extracting raw transactions from Cali (CSV), Bogotá (JSON), and Medellín 
 | :--- | :--- | :--- |
 | **Duplicate Identifiers** | Duplicate `sale_line_id` values were detected across heterogeneous sources. | Drop duplicate `sale_line_id` records, keeping the first valid occurrence. |
 | **Heterogeneous Date Formats** | Dates were stored in multiple string formats (e.g., `YYYY-MM-DD`, `DD/MM/YYYY`, ISO timestamps) with string whitespaces. | Trim whitespace and parse all dates into a standardized `YYYY-MM-DD` datetime format. Reject unparseable dates. |
-| **Invalid Quantities** | Non-numeric entries, nulls, and negative/zero values ($\le 0$) were present in `quantity`. | Convert to numeric (`int`/`float`). Reject rows where $\text{quantity} \le 0$ or null. |
-| **Invalid Unit Prices** | String formats, nulls, and non-positive prices ($\le 0$) were present in `unit_price`. | Cast to `float`. Reject rows where $\text{unit\_price} \le 0$ or null. |
+| **Invalid Quantities** | Non-numeric entries, nulls, and negative/zero values (<= 0) were present in `quantity`. | Convert to numeric (`int`/`float`). Reject rows where `quantity` <= 0 or null. |
+| **Invalid Unit Prices** | String formats, nulls, and non-positive prices (<= 0) were present in `unit_price`. | Cast to `float`. Reject rows where `unit_price` <= 0 or null. |
 | **Missing Promotion Codes** | Null/empty values represent sales where no promotional discount was applied. | Fill missing `promotion_code` values with standard representation `'NONE'`. |
 | **Text Whitespaces & Casing** | Trailing whitespaces and mixed casing in `store_id`, `product_id`, and `payment_method`. | Strip leading/trailing whitespaces and convert text to uppercase/standardized casing. |
 
@@ -71,7 +71,7 @@ Based on the profiling results, the `clean_and_harmonize_data` module executes t
 3. **Numeric Type Casting**: Converts `quantity` to integer and `unit_price` to floating-point numeric types.
 4. **Promotion Code Normalization**: Replaces missing/null promotion codes with the standard placeholder `'NONE'`.
 5. **Deduplication**: Removes duplicate `sale_line_id` records, retaining only the first valid occurrence.
-6. **Record Quality Gate**: Filters out corrupted records containing unparseable dates, non-positive quantities ($\le 0$), or non-positive unit prices ($\le 0$).
+6. **Record Quality Gate**: Filters out corrupted records containing unparseable dates, non-positive quantities (<= 0), or non-positive unit prices (<= 0).
 
 
 ### 7.  Transformation & Integration Phase (`src/transform.py`)
@@ -80,9 +80,9 @@ The integration block combines the cleaned transactional DataFrame with raw mast
 
 1. **Relational Merges**: Performs LEFT JOINs with master tables to attach product details, store region metadata, and promotion discount percentages.
 2. **Financial Metrics Calculation**:
-   - $\text{gross\_sales} = \text{quantity} \times \text{unit\_price}$
-   - $\text{discount\_amount} = \text{gross\_sales} \times \left(\frac{\text{discount\_rate}}{100}\right)$
-   - $\text{net\_sales} = \text{gross\_sales} - \text{discount\_amount}$
+   - `gross_sales = quantity * unit_price`
+   - `discount_amount = gross_sales * (discount_rate / 100)`
+   - `net_sales = gross_sales - discount_amount`
 3. **Temporal Enrichment**: Derives `year`, `month`, `week`, and `day_name` directly from the standardized `sale_date`.
 4. **Data Quality Assertions**: Executes strict programmatic runtime assertions validating `sale_line_id` uniqueness, non-null mandatory fields, and non-negative net sales figures prior to data persistence.
 
