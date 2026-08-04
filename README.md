@@ -1,8 +1,8 @@
+## Lab 1B – From Business Requirements to a Basic ETL Pipeline 🧪
 
-
+Below you will find explanations of the requirements, design, and implementation, along with step-by-step instructions for executing everything.
 
 ## 1. Selected Business Requirements & Traceability
-
 
 | # | Business Requirement | Required Data | Pipeline Block | Expected Output |
 |---|---|---|---|---|
@@ -107,14 +107,47 @@ The query execution module connects to `database/retail_analytics.db` to validat
 6. **Req 6 (Consolidation Integrity)**: Verifies record balance across ingestion points (`city`).
 
 
-## 10. Execution Instructions
+## 10. Execution Instructions 📖
 
-To run the complete ETL pipeline end-to-end, follow these steps from your terminal:
+### 1. Clone the repository
 
-1. **Activate Environment & Install Dependencies**:
-   Ensure Python 3.9+ and `pandas` are installed.
+```bash
+git clone https://github.com/michaelmaccardona-lgtm/Lab1B_ETL.git
+```
 
-2. **Execute Orquestator**:
-   Run the main entry point from the project root:
-   ```bash
-   python src/main.py
+### 2. Create & Activate the Environment 
+
+Ensure you have `Python 3.9+` first. If not, you couldn't do the steps upcoming.
+
+Afterwards, we'll create it with this instructions:
+
+```bash
+# Command in terminal
+python -m venv .LAB1_ETL
+```
+
+To activate you should use:
+
+```bash
+.\.LAB1_ETL\Scripts\Activate
+```
+> In case you named with a different name replace the `.LAB1_ETL` with yours.
+
+### 3. Install Dependencies
+
+```bash
+pip install requirements.txt
+```
+
+### 4. **Execute Orquestator**:
+
+Run the main entry point from the project root:
+```bash
+python src/main.py
+```
+
+And that's all!
+
+### Recommendations
+
+To analize and visualize the database generated install the extension called `db viewer` if you're in VS Code.
