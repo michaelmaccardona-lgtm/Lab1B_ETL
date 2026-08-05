@@ -1,11 +1,7 @@
 """
-Aquí es donde respondemos las preguntas del negocio (el Lab 1A).
-Nos conectamos a la base de datos de SQLite que creamos en el paso anterior y hacemos consultas en SQL para sacar:
-- Cuánto se vendió cada mes y día.
-- Cuáles fueron los productos y categorías más vendidos.
-- Si las tiendas cumplieron o no con las metas del mes (cruzando ventas reales vs presupuesto).
-- Si las campañas de descuento funcionaron y dejaron buen ROI.
-Todo esto lo guardamos en tablas nuevas dentro de la misma base de datos para que sea fácil leerlas o graficarlas.
+Consultas de negocio
+
+En este archivo respondemos las preguntas principales que nos hizo la empresa. Nos conectamos a la base de datos y hacemos las consultas necesarias para saber cuánto se vendió cada mes y día, y cuáles fueron los productos o categorías más vendidos. También revisamos si las tiendas lograron cumplir con el presupuesto que tenían asignado y verificamos si las campañas de descuentos valieron la pena revisando el retorno de inversión. Los resultados de todo esto los guardamos como tablas nuevas para tenerlos a la mano.
 """
 
 import sqlite3

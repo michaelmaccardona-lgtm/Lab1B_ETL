@@ -1,8 +1,7 @@
 """
-Este es el archivo más pesado del proyecto porque aquí hacemos toda la limpieza y los cálculos.
-Primero revisamos qué tan sucios vienen los datos. Luego aplicamos filtros, como quitar los espacios en blanco sobrantes y eliminar las filas que tengan precios o cantidades negativas (porque no tienen sentido en ventas).
-Después, cruzamos (hacemos JOIN) las ventas con la info de los productos, tiendas y promociones.
-Por último, ya con todo cruzado, calculamos las ventas brutas, aplicamos los descuentos y sacamos el total de las ventas netas. También sacamos el año, mes y día para poder hacer gráficas después.
+Limpieza y transformación
+
+Aquí es donde procesamos la información para dejarla lista. Primero revisamos la calidad de los datos y borramos lo que no sirve, como espacios en blanco sobrantes o ventas que tienen precios o cantidades negativas. Después juntamos estas ventas limpias con la información de los productos, las tiendas y las promociones. Ya con la información completa, calculamos cuánto fueron las ventas brutas, restamos los descuentos y sacamos las ventas netas reales. Además, separamos las fechas en año, mes y día para facilitar los reportes.
 """
 
 import pandas as pd

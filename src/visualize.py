@@ -1,7 +1,7 @@
 """
-Acá leemos la base de datos de SQLite para generar las gráficas de la sustentación usando matplotlib y seaborn.
-Hacemos 4 gráficas clave: la tendencia de ventas por tienda, el top de categorías, quién cumplió las metas y la efectividad de las promociones.
-Las gráficas se guardan solitas en la carpeta 'images/' y les puse títulos y números encima de las barras para que se entiendan fácil en las diapositivas.
+Generación de gráficas
+
+Aquí leemos la base de datos para crear las gráficas visuales del proyecto. Generamos gráficas para ver la tendencia de ventas a lo largo de los meses por cada tienda, el desempeño de las categorías de productos, la comparación de las metas contra las ventas reales y el impacto de las campañas promocionales. Todas las gráficas se guardan automáticamente en una carpeta y les agregamos los valores exactos encima de las barras para que sean muy fáciles de leer.
 """
 
 import sqlite3

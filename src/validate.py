@@ -1,10 +1,7 @@
 """
-Este archivo funciona como una alarma de seguridad antes de guardar los datos.
-Revisa un par de cosas básicas para asegurarnos de que la limpieza quedó bien:
-- Que no haya IDs de ventas repetidos.
-- Que no se nos haya colado ninguna venta neta negativa.
-- Que al cruzar las tablas no hayan quedado productos o tiendas sin nombre (nulos).
-Si encuentra algún error, detiene el programa de una para no guardar basura en la base de datos.
+Validación de calidad
+
+Este archivo sirve para revisar que los datos hayan quedado perfectos antes de guardarlos. Nos aseguramos de que no existan ventas duplicadas y verificamos que los cálculos matemáticos de las ventas netas no hayan dado números negativos. También confirmamos que todos los productos y tiendas tengan su nombre correcto y no hayan quedado vacíos. Si encuentra algún error grave en la información, detiene el programa automáticamente para no dañar la base de datos.
 """
 
 import pandas as pd

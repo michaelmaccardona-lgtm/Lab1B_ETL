@@ -1,8 +1,7 @@
 """
-En esta parte guardamos todo el trabajo que ya hicimos. 
-Tomamos la tabla final que salió de la transformación y la exportamos a un CSV nuevecito.
-Pero lo más importante es que también guardamos los datos en una base de datos de SQLite (retail_analytics.db) para poder hacerle consultas SQL más adelante.
-Usamos la opción de 'replace' para que si corremos el código varias veces, no se nos dupliquen los datos (a esto el profe le llama idempotencia).
+Carga de datos
+
+Este archivo se encarga de guardar todo el trabajo que hicimos en los pasos anteriores. Tomamos la tabla final ya calculada y la guardamos en un archivo CSV nuevo. También guardamos toda esta información en una base de datos de SQLite para que sea muy fácil hacerle consultas después. Nos aseguramos de configurarlo para que si corremos el programa varias veces, los datos no se dupliquen sino que se reemplacen limpiamente.
 """
 
 import sqlite3

@@ -1,7 +1,7 @@
 """
-Este script es súper cortico pero útil. Se conecta a la base de datos de SQLite y crea Vistas (Views) de SQL
-apuntando a las tablas de resultados que generamos en las consultas.
-Esto lo hicimos para cumplir con el requisito de que los reportes se puedan consultar fácilmente desde cualquier programa de bases de datos.
+Creación de vistas
+
+Este archivo se conecta directamente a la base de datos para crear vistas sobre las tablas de resultados que ya calculamos. Hacemos esto para que cualquier persona o programa que revise la base de datos pueda consultar los reportes finales de forma directa y sencilla.
 """
 
 import sqlite3

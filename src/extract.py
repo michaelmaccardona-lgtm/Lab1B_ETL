@@ -1,7 +1,7 @@
 """
-Acá hacemos la primera parte del ETL: la extracción.
-Básicamente nos conectamos a los archivos que mandó cada ciudad (Cali mandó un CSV, Bogotá un JSON y Medellín un XML).
-Lo único que hace este archivo es leer los datos en bruto y cambiarles el nombre a las columnas para que todas queden iguales y las podamos juntar en una sola tabla gigante de Pandas. Todavía no hacemos cálculos matemáticos ni borramos datos malos, eso pasa en el siguiente paso.
+Extracción de datos
+
+En este archivo nos conectamos a los datos originales que nos enviaron de cada ciudad. Cali nos envió un archivo CSV, Bogotá un JSON y Medellín un XML. Lo que hacemos aquí es leer esa información tal cual viene y unificar los nombres de las columnas para que queden iguales en todas partes. Al final, juntamos todo en una sola tabla para poder procesarla más adelante, pero aquí todavía no hacemos cálculos ni borramos información.
 """
 
 import pandas as pd

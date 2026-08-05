@@ -1,13 +1,7 @@
 """
-Este es el archivo principal que arranca todo el programa. 
-Básicamente es un script que llama a los demás archivos en orden:
-1. Extrae los datos (extract.py)
-2. Los limpia y cruza (transform.py)
-3. Revisa que no la hayamos embarrado con los cálculos (validate.py)
-4. Guarda los resultados (load.py)
-5. Corre las consultas en SQL para ver los resultados finales (queries.py)
+Ejecución del programa
 
-Para correr el proyecto solo tienes que ejecutar este archivo en la consola.
+Este es el archivo principal que se encarga de arrancar y coordinar todo el proyecto. Lo que hace es llamar a los demás archivos en el orden correcto para que todo funcione bien. Primero extrae los datos, luego los limpia y hace los cálculos, después verifica que no haya errores, guarda los resultados finales y por último ejecuta las consultas para generar los reportes. Para arrancar todo el proceso solo hace falta ejecutar este archivo.
 """
 
 from pathlib import Path
