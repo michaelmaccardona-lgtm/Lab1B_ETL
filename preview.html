@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plataforma Analítica de Retail — Lab 1A + Lab 1B</title>
+<style>
+:root{
+  --bg:#07111f;
+  --bg2:#0b1728;
+  --panel:rgba(15,29,49,.82);
+  --panel2:#10223a;
+  --line:rgba(148,163,184,.18);
+  --text:#f5f7fb;
+  --muted:#9eacc0;
+  --blue:#38bdf8;
+  --blue2:#2563eb;
+  --cyan:#22d3ee;
+  --green:#34d399;
+  --amber:#fbbf24;
+  --red:#fb7185;
+  --purple:#a78bfa;
+  --shadow:0 24px 80px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 12% 12%,rgba(37,99,235,.18),transparent 28%),
+    radial-gradient(circle at 88% 78%,rgba(34,211,238,.12),transparent 30%),
+    linear-gradient(135deg,var(--bg),#050b14 65%,#08182b);
+}
+button{font:inherit}
+.presentation{width:100vw;height:100vh;position:relative}
+.slide{
+  position:absolute;inset:0;
+  display:none;
+  padding:5.2vh 6.2vw 7vh;
+  overflow:hidden;
+}
+.slide.active{display:block;animation:enter .45s ease both}
+@keyframes enter{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+.grid-bg{
+  position:absolute;inset:0;pointer-events:none;opacity:.28;
+  background-image:linear-gradient(rgba(148,163,184,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(148,163,184,.045) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+.orb{position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none}
+.orb.one{width:28vw;height:28vw;background:rgba(37,99,235,.08);right:-10vw;top:-10vw}
+.orb.two{width:24vw;height:24vw;background:rgba(34,211,238,.06);left:-13vw;bottom:-13vw}
+.topline{
+  position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+  color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.14em;
+}
+.brand{display:flex;gap:10px;align-items:center}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+.title{
+  position:relative;z-index:2;margin:2.5vh 0 1.8vh;
+  font-size:clamp(30px,4.2vw,68px);line-height:.98;letter-spacing:-.045em;font-weight:800;
+}
+.subtitle{position:relative;z-index:2;color:var(--muted);font-size:clamp(14px,1.35vw,21px);max-width:850px;line-height:1.5}
+.kicker{
+  color:var(--cyan);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.18em;
+  margin-bottom:12px
+}
+.accent{color:var(--blue)}
+.muted{color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+.panel{
+  background:linear-gradient(145deg,rgba(17,34,57,.88),rgba(9,21,37,.78));
+  border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+}
+.cards{display:grid;gap:16px}
+.card{padding:20px;border-radius:18px;background:rgba(13,27,46,.76);border:1px solid var(--line)}
+.card h3{margin:0 0 8px;font-size:16px}
+.card p{margin:0;color:var(--muted);line-height:1.45;font-size:13px}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;
+  border:1px solid var(--line);background:rgba(255,255,255,.035);font-size:11px;color:#cbd5e1
+}
+.dot{width:7px;height:7px;border-radius:50%}
+.blue{background:var(--blue)} .green{background:var(--green)} .amber{background:var(--amber)}
+.red{background:var(--red)} .purple{background:var(--purple)}
+.footer{
+  position:absolute;left:6.2vw;right:6.2vw;bottom:2.5vh;z-index:5;
+  display:flex;align-items:center;gap:16px;color:var(--muted);font-size:11px;
+}
+.progressbar{height:3px;flex:1;background:rgba(148,163,184,.14);border-radius:99px;overflow:hidden}
+.progressfill{height:100%;background:linear-gradient(90deg,var(--blue2),var(--cyan));width:12.5%;transition:width .3s}
+.controls{
+  position:fixed;right:22px;bottom:20px;z-index:20;display:flex;gap:7px;
+  opacity:.7;transition:.2s
+}
+.controls:hover{opacity:1}
+.ctrl{
+  border:1px solid var(--line);background:rgba(9,19,33,.82);color:#dbeafe;
+  border-radius:10px;padding:8px 11px;cursor:pointer
+}
+.notes{
+  position:fixed;right:18px;top:18px;z-index:30;width:min(440px,88vw);max-height:76vh;overflow:auto;
+  display:none;padding:20px;background:#07111f;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)
+}
+.notes.open{display:block}
+.notes h3{margin:0 0 10px;color:var(--cyan)}
+.notes p{font-size:13px;line-height:1.6;color:#cbd5e1;margin:0 0 12px}
+.notes .timing{color:var(--amber);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+
+/* Slide 1 */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:5vw;align-items:center;height:78vh}
+.hero h1{font-size:clamp(46px,6.7vw,108px);max-width:820px;margin:0 0 22px}
+.hero-tag{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}
+.problem-visual{padding:28px;position:relative;min-height:390px;display:flex;flex-direction:column;justify-content:center}
+.source-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.source{
+  padding:18px 12px;text-align:center;border-radius:15px;background:rgba(255,255,255,.035);
+  border:1px solid var(--line)
+}
+.source .icon{font-size:25px;margin-bottom:8px}
+.source strong{display:block;font-size:14px}.source span{font-size:11px;color:var(--muted)}
+.flowline{height:54px;position:relative;margin:0 13%;border-left:1px dashed rgba(56,189,248,.45);border-right:1px dashed rgba(56,189,248,.45)}
+.flowline:after{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px solid var(--blue);transform:translateX(-50%)}
+.decision{
+  align-self:center;width:min(330px,90%);padding:20px;text-align:center;border-radius:16px;
+  background:linear-gradient(135deg,rgba(37,99,235,.28),rgba(34,211,238,.12));
+  border:1px solid rgba(56,189,248,.35)
+}
+.decision strong{font-size:20px}.decision span{display:block;color:#b9c7d9;font-size:12px;margin-top:5px}
+
+/* Slide 2 */
+.objectives{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-top:4vh}
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.obj-card{min-height:150px;padding:22px;position:relative;overflow:hidden}
+.obj-num{font-size:42px;font-weight:900;color:rgba(56,189,248,.22);position:absolute;right:15px;top:8px}
+.obj-card h3{font-size:17px;max-width:170px}.obj-card p{font-size:12px;color:var(--muted);line-height:1.45}
+.kpis{padding:22px}.kpis h3{margin:0 0 16px}
+.kpi{padding:15px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:15px}
+.kpi strong{font-size:14px}.kpi span{color:var(--cyan);font-size:12px;text-align:right}
+.questions{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.question{padding:14px;border-left:3px solid var(--blue);background:rgba(255,255,255,.025);border-radius:0 12px 12px 0;font-size:12px;color:#cbd5e1}
+
+/* Slide 3 */
+.pipeline-wrap{margin-top:5vh;padding:25px}
+.pipeline{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:center}
+.step{position:relative;text-align:center;padding:18px 8px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.035)}
+.step:not(:last-child):after{content:"→";position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--cyan);font-size:18px;font-weight:900}
+.step .n{font-size:10px;color:var(--cyan);font-weight:800}.step strong{display:block;margin-top:6px;font-size:13px}
+.step small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.etl-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
+.etl-note{padding:18px;border-radius:15px;background:rgba(255,255,255,.025);border:1px solid var(--line)}
+.etl-note strong{display:block;margin-bottom:5px}.etl-note span{font-size:12px;color:var(--muted);line-height:1.45}
+.quote{
+  margin-top:22px;text-align:center;font-size:clamp(18px,2vw,28px);font-weight:800;
+  color:#fff
+}.quote em{font-style:normal;color:var(--cyan)}
+
+/* Slide 4 */
+.extract-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;margin-top:4vh}
+.city-stack{display:grid;gap:12px}
+.city{display:grid;grid-template-columns:65px 1fr auto;align-items:center;gap:14px;padding:17px 19px}
+.city-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:13px;background:rgba(56,189,248,.1);font-weight:900;color:var(--cyan)}
+.city strong{font-size:15px}.city span{font-size:11px;color:var(--muted)}
+.format{font-family:ui-monospace,monospace;font-size:11px;color:#dbeafe;background:rgba(255,255,255,.05);padding:7px 9px;border-radius:8px}
+.master{padding:22px}
+.master h3{margin:0 0 14px}.master-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.master-item{padding:15px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.master-item strong{display:block;font-size:13px}.master-item span{color:var(--muted);font-size:11px}
+.extract-flow{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:12px;margin-top:3px}
+.flow-box{padding:12px 17px;border-radius:12px;border:1px solid var(--line);font-size:12px}
+.flow-box.highlight{background:rgba(37,99,235,.22);border-color:rgba(56,189,248,.35)}
+.arrow{color:var(--cyan);font-weight:900}
+
+/* Slide 5 */
+.quality{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4vh}
+.bad-box,.good-box{padding:22px}
+.bad-box{border-color:rgba(251,113,133,.25)}.good-box{border-color:rgba(52,211,153,.25)}
+.list{display:grid;gap:10px;margin-top:15px}
+.list-row{display:flex;gap:10px;align-items:flex-start;padding:11px;border-radius:11px;background:rgba(255,255,255,.025);font-size:12px}
+.list-row b{min-width:20px}
+.quality-flow{margin-top:20px;display:grid;grid-template-columns:1fr auto 1fr;gap:15px;align-items:center}
+.data-box{padding:21px;border-radius:16px;text-align:center;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.data-box strong{display:block;font-size:15px}.data-box span{font-size:11px;color:var(--muted)}
+.gate{padding:12px 17px;border-radius:99px;background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.25);font-size:11px;font-weight:800;text-align:center}
+.business-impact{margin-top:20px;text-align:center;color:#dbeafe;font-size:14px}
+.business-impact b{color:var(--red)}
+
+/* Slide 6 */
+.transform{display:grid;grid-template-columns:1fr .95fr;gap:18px;margin-top:4vh}
+.join-map{padding:22px}
+.join-map h3{margin:0 0 15px}.join-row{display:grid;grid-template-columns:1fr 70px 1fr;align-items:center;gap:10px;margin:10px 0}
+.join-source,.join-core{padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);font-size:12px}
+.join-core{text-align:center;color:var(--cyan);font-weight:900}
+.metric-panel{padding:22px}
+.metric{padding:15px 0;border-bottom:1px solid var(--line)}
+.metric:last-child{border-bottom:0}.metric code{font-family:ui-monospace,monospace;color:#c4b5fd;font-size:13px}
+.metric strong{display:block;margin-top:5px;font-size:13px}.metric span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.formula{
+  margin-top:20px;padding:18px;text-align:center;border-radius:15px;background:rgba(37,99,235,.1);
+  border:1px solid rgba(56,189,248,.2);font-family:ui-monospace,monospace;font-size:13px;color:#dbeafe
+}
+.time-fields{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* Slide 7 */
+.load-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px;margin-top:4vh}
+.destinations{padding:22px}.dest{padding:18px;border:1px solid var(--line);border-radius:15px;margin-bottom:11px}
+.dest:last-child{margin-bottom:0}.dest-top{display:flex;justify-content:space-between;align-items:center}
+.dest strong{font-size:14px}.dest code{font-size:11px;color:var(--cyan)}
+.query-panel{padding:22px}
+.query-chain{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:center;margin-bottom:18px}
+.chain-item{padding:14px 9px;text-align:center;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid var(--line);font-size:11px}
+.chain-item strong{display:block;font-size:12px;margin-bottom:4px}.chain-item span{color:var(--muted)}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.result{padding:14px;border-radius:13px;background:linear-gradient(145deg,rgba(37,99,235,.12),rgba(255,255,255,.025));border:1px solid rgba(56,189,248,.15)}
+.result b{display:block;font-size:12px}.result span{font-size:10px;color:var(--muted)}
+.result .fake-chart{height:38px;margin-top:10px;display:flex;align-items:end;gap:4px}
+.bar{flex:1;background:linear-gradient(to top,var(--blue2),var(--cyan));border-radius:3px 3px 0 0;min-height:8px}
+.idempotent{margin-top:16px;font-size:11px;color:var(--green);padding:10px 12px;border-radius:10px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.16)}
+
+/* Slide 8 */
+.conclusion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:4vh}
+.conclusion{padding:23px;min-height:190px;position:relative;overflow:hidden}
+.conclusion .num{font-size:70px;font-weight:900;color:rgba(255,255,255,.04);position:absolute;right:8px;bottom:-10px}
+.conclusion h3{font-size:17px}.conclusion p{font-size:12px;color:var(--muted);line-height:1.55}
+.final-flow{margin-top:22px;padding:20px;display:flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap}
+.final-step{padding:12px 16px;border-radius:11px;background:rgba(37,99,235,.12);border:1px solid rgba(56,189,248,.18);font-size:12px;font-weight:700}
+.final-arrow{color:var(--cyan)}
+.timing{margin-top:15px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+/* Responsive */
+@media(max-width:1000px){
+ .slide{padding:4vh 4vw 8vh}
+ .hero{grid-template-columns:1fr;gap:18px;height:auto}
+ .problem-visual{min-height:260px}
+ .objectives,.extract-grid,.quality,.transform,.load-layout{grid-template-columns:1fr}
+ .obj-grid,.questions,.conclusion-grid{grid-template-columns:1fr}
+ .pipeline{grid-template-columns:repeat(4,1fr)}
+ .step:not(:last-child):after{display:none}
+ .etl-bottom{grid-template-columns:1fr}
+ .footer{left:4vw;right:4vw}
+}
+@media(max-width:650px){
+ .slide{overflow:auto}
+ .title{font-size:34px}
+ .source-row,.master-grid,.results{grid-template-columns:1fr}
+ .pipeline{grid-template-columns:1fr 1fr}
+ .query-chain{grid-template-columns:1fr 1fr}
+ .quality-flow{grid-template-columns:1fr}
+ .extract-flow{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<div class="presentation">
+<div class="grid-bg"></div><div class="orb one"></div><div class="orb two"></div>
+
+<!-- 01 -->
+<section class="slide active" data-title="Introducción y contexto">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Plataforma Analítica de Retail</div><div>LAB 1A + LAB 1B</div></div>
+  <div class="hero">
+    <div>
+      <div class="kicker">01 · Problema de negocio</div>
+      <h1>Información <span class="accent">dispersa</span> = decisiones lentas.</h1>
+      <p class="subtitle">Una compañía de Retail recibe grandes volúmenes de ventas desde distintas sucursales, pero la información llega en hojas de cálculo y sistemas diferentes. El reto: centralizarla para decidir mejor sobre marketing, inventario y rendimiento de tiendas.</p>
+      <div class="hero-tag">
+        <span class="pill"><i class="dot blue"></i> Datos de ventas</span>
+        <span class="pill"><i class="dot purple"></i> Múltiples sucursales</span>
+        <span class="pill"><i class="dot amber"></i> Sistemas desconectados</span>
+      </div>
+    </div>
+    <div class="panel problem-visual">
+      <div class="source-row">
+        <div class="source"><div class="icon">▤</div><strong>Hojas de cálculo</strong><span>Información fragmentada</span></div>
+        <div class="source"><div class="icon">◫</div><strong>Bases de datos</strong><span>Sistemas separados</span></div>
+        <div class="source"><div class="icon">⌁</div><strong>Fuentes diarias</strong><span>Datos heterogéneos</span></div>
+      </div>
+      <div class="flowline"></div>
+      <div class="decision"><strong>Decisiones lentas</strong><span>Mucho tiempo para entender qué ocurre en las tiendas.</span></div>
+    </div>
+  </div>
+  <div class="notes"><div class="timing">Guion · apertura</div><p>Buenos días. Para este proyecto trabajamos con una compañía de Retail que se enfrenta a un problema clásico: tienen muchísimos datos de ventas llegando todos los días desde distintas sucursales, pero la información está regada en hojas de cálculo y sistemas diferentes. Esto hace que los gerentes pierdan mucho tiempo tratando de entender qué pasa en las tiendas. Nuestro objetivo fue diseñar una solución que centralizara esta información para que puedan tomar decisiones de marketing e inventario de manera rápida y basada en datos reales.</p></div>
+</section>
+
+<!-- 02 -->
+<section class="slide" data-title="Objetivos de negocio">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Lab 1A · Requerimientos de negocio</div><div>02 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">02 · Primero entendimos el negocio</div>
+  <h2 class="title">¿Qué necesitaba responder la gerencia?</h2>
+  <p class="subtitle">Antes de escribir una sola línea de código, definimos las preguntas analíticas y los KPIs que la plataforma debía calcular obligatoriamente.</p>
+  <div class="objectives">
+    <div class="obj-grid">
+      <div class="panel obj-card"><div class="obj-num">01</div><h3>Visibilidad del rendimiento por tienda</h3><p>Entender qué tiendas están cumpliendo sus objetivos.</p></div>
+      <div class="panel obj-card"><div class="obj-num">02</div><h3>Categorías líderes y rezagadas</h3><p>Detectar qué productos o categorías impulsan o frenan las ventas.</p></div>
+      <div class="panel obj-card"><div class="obj-num">03</div><h3>Impacto de promociones</h3><p>Medir el efecto real de las campañas sobre las ventas.</p></div>
+    </div>
+    <div class="panel kpis">
+      <h3>KPIs principales</h3>
+      <div class="kpi"><strong>Ventas por categoría</strong><span>Desempeño</span></div>
+      <div class="kpi"><strong>Total de ingresos</strong><span>Resultado financiero</span></div>
+      <div class="kpi"><strong>Rendimiento vs. metas</strong><span>Cumplimiento</span></div>
+    </div>
+  </div>
+  <div class="questions">
+    <div class="question">¿Qué productos se están vendiendo menos?</div>
+    <div class="question">¿Qué tiendas están cumpliendo sus metas mensuales?</div>
+    <div class="question">¿Cuál es el impacto real de las campañas promocionales?</div>
+  </div>
+  <div class="notes"><div class="timing">Guion · Lab 1A</div><p>Antes de escribir una sola línea de código, nos enfocamos en entender el negocio (Lab 1A). Descubrimos que los directivos necesitaban responder preguntas muy específicas: ¿Qué productos se están vendiendo menos? ¿Qué tiendas están cumpliendo sus metas mensuales? y ¿Cuál es el impacto real de nuestras campañas promocionales? A partir de esto, definimos los KPIs que nuestra plataforma debía calcular obligatoriamente.</p></div>
+</section>
+
+<!-- 03 -->
+<section class="slide" data-title="Arquitectura ETL">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Lab 1B · Arquitectura</div><div>03 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">03 · Diseño de la solución</div>
+  <h2 class="title">El Dashboard no es el primer paso.</h2>
+  <p class="subtitle">Diseñamos un Pipeline ETL modular para convertir datos heterogéneos en información analítica confiable.</p>
+  <div class="panel pipeline-wrap">
+    <div class="pipeline">
+      <div class="step"><span class="n">01</span><strong>Extract</strong><small>Ingesta</small></div>
+      <div class="step"><span class="n">02</span><strong>Profile</strong><small>Diagnóstico</small></div>
+      <div class="step"><span class="n">03</span><strong>Clean</strong><small>Calidad</small></div>
+      <div class="step"><span class="n">04</span><strong>Transform</strong><small>Reglas</small></div>
+      <div class="step"><span class="n">05</span><strong>Validate</strong><small>Control</small></div>
+      <div class="step"><span class="n">06</span><strong>Load</strong><small>Persistencia</small></div>
+      <div class="step"><span class="n">07</span><strong>Query</strong><small>Análisis</small></div>
+    </div>
+    <div class="etl-bottom">
+      <div class="etl-note"><strong>Entradas</strong><span>Datos heterogéneos provenientes de distintas ciudades y fuentes.</span></div>
+      <div class="etl-note"><strong>Procesamiento</strong><span>Perfilamiento, limpieza, transformación, validación e integración.</span></div>
+      <div class="etl-note"><strong>Salida</strong><span>Base analítica lista para responder preguntas del negocio.</span></div>
+    </div>
+  </div>
+  <div class="quote">“Basura entra, basura sale.” <em>La calidad del dato sostiene el análisis.</em></div>
+  <div class="notes"><div class="timing">Guion · arquitectura</div><p>Para responder a esas preguntas, nos dimos cuenta de que no podíamos saltar directamente a hacer un Dashboard. Un Dashboard alimentado con datos sucios no sirve (Basura entra, basura sale). Por lo tanto, diseñamos una arquitectura ETL modular. Este diagrama muestra cómo tomamos los datos heterogéneos de cada ciudad, los perfilamos, los limpiamos, los transformamos cruzándolos con nuestras tablas maestras y, finalmente, los guardamos en una base de datos analítica lista para ser consultada.</p></div>
+</section>
+
+<!-- 04 -->
+<section class="slide" data-title="Extracción">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Lab 1B · Ingesta heterogénea</div><div>04 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">04 · Extract</div>
+  <h2 class="title">Tres ciudades. Tres formatos. Un esquema.</h2>
+  <p class="subtitle">La primera dificultad técnica fue la interoperabilidad. Cada origen debía ser leído correctamente y llevado a un esquema unificado sin aplicar todavía lógica de negocio.</p>
+  <div class="extract-grid">
+    <div class="city-stack">
+      <div class="panel city"><div class="city-icon">C</div><div><strong>Cali</strong><span>Origen de transacciones</span></div><span class="format">CSV</span></div>
+      <div class="panel city"><div class="city-icon">J</div><div><strong>Bogotá</strong><span>Origen de transacciones</span></div><span class="format">JSON</span></div>
+      <div class="panel city"><div class="city-icon">X</div><div><strong>Medellín</strong><span>Origen de transacciones</span></div><span class="format">XML</span></div>
+    </div>
+    <div class="panel master">
+      <h3>Tablas maestras</h3>
+      <div class="master-grid">
+        <div class="master-item"><strong>Productos</strong><span>Información para enriquecer transacciones</span></div>
+        <div class="master-item"><strong>Tiendas</strong><span>Contexto de cada punto de venta</span></div>
+        <div class="master-item"><strong>Promociones</strong><span>Reglas para descuentos e impacto</span></div>
+        <div class="master-item"><strong>Metas</strong><span>Referencia para medir cumplimiento</span></div>
+      </div>
+    </div>
+    <div class="extract-flow">
+      <span class="flow-box">CSV</span><span class="arrow">+</span><span class="flow-box">JSON</span><span class="arrow">+</span><span class="flow-box">XML</span>
+      <span class="arrow">→</span><span class="flow-box highlight">Python · extract.py · Pandas</span>
+      <span class="arrow">→</span><span class="flow-box">Esquema unificado</span>
+    </div>
+  </div>
+  <div class="notes"><div class="timing">Guion · extracción</div><p>En la primera fase técnica (Lab 1B), nos enfrentamos al reto de la interoperabilidad. Cali enviaba datos en CSV, Bogotá en JSON y Medellín en XML. Creamos funciones específicas en Python (extract.py) para leer cada uno de estos formatos y llevarlos a un esquema unificado de Pandas. La regla estricta aquí fue: solo extraer, sin aplicar ninguna lógica de negocio aún.</p></div>
+</section>
+
+<!-- 05 -->
+<section class="slide" data-title="Calidad de datos">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Lab 1B · Quality Gates</div><div>05 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">05 · Profile + Clean</div>
+  <h2 class="title">Antes de analizar, <span class="accent">validamos.</span></h2>
+  <p class="subtitle">El perfilamiento permitió detectar inconsistencias que podían distorsionar los reportes y las decisiones financieras.</p>
+  <div class="quality">
+    <div class="panel bad-box">
+      <h3>⚠ Problemas detectados</h3>
+      <div class="list">
+        <div class="list-row"><b style="color:var(--red)">01</b><span>Registros duplicados.</span></div>
+        <div class="list-row"><b style="color:var(--red)">02</b><span>Fechas nulas.</span></div>
+        <div class="list-row"><b style="color:var(--red)">03</b><span>Precios o cantidades negativas.</span></div>
+        <div class="list-row"><b style="color:var(--red)">04</b><span>Códigos de promoción faltantes.</span></div>
+        <div class="list-row"><b style="color:var(--red)">05</b><span>Inconsistencias de mayúsculas/minúsculas y unidades.</span></div>
+      </div>
+    </div>
+    <div class="panel good-box">
+      <h3>✓ Reglas aplicadas · transform.py</h3>
+      <div class="list">
+        <div class="list-row"><b style="color:var(--green)">→</b><span>Filtrar valores <code>&le; 0</code>.</span></div>
+        <div class="list-row"><b style="color:var(--green)">→</b><span>Estandarizar fechas a <code>YYYY-MM-DD</code>.</span></div>
+        <div class="list-row"><b style="color:var(--green)">→</b><span>Promoción nula/vacía → <code>NONE</code>.</span></div>
+        <div class="list-row"><b style="color:var(--green)">→</b><span>Normalizar inconsistencias de texto/unidades.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="quality-flow">
+    <div class="data-box"><strong>Datos crudos</strong><span>Riesgo de errores y duplicados</span></div>
+    <div class="gate">QUALITY GATE</div>
+    <div class="data-box"><strong>Datos confiables</strong><span>Listos para transformación</span></div>
+  </div>
+  <div class="business-impact">Conexión con negocio: <b>un precio negativo puede afectar el balance financiero reportado a gerencia.</b></div>
+  <div class="notes"><div class="timing">Guion · calidad</div><p>Una vez unificados los datos, hicimos un perfilamiento. Descubrimos que había registros duplicados y facturas con precios o cantidades negativas que podían arruinar el reporte financiero. En nuestro módulo de limpieza (transform.py) aplicamos filtros estrictos, estandarizamos el formato de todas las fechas y arreglamos los problemas de mayúsculas/minúsculas para garantizar que los datos estuvieran íntegros.</p></div>
+</section>
+
+<!-- 06 -->
+<section class="slide" data-title="Transformación">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Lab 1B · Reglas de negocio</div><div>06 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">06 · Transform + Integrate</div>
+  <h2 class="title">De datos limpios a <span class="accent">información de negocio.</span></h2>
+  <p class="subtitle">Integramos las transacciones con las tablas maestras y calculamos métricas que no venían originalmente en los datos.</p>
+  <div class="transform">
+    <div class="panel join-map">
+      <h3>Integración mediante JOINs</h3>
+      <div class="join-row"><div class="join-source">Transacciones</div><div class="join-core">JOIN</div><div class="join-source">Productos</div></div>
+      <div class="join-row"><div class="join-source">Transacciones</div><div class="join-core">JOIN</div><div class="join-source">Promociones</div></div>
+      <div class="join-row"><div class="join-source">Transacciones</div><div class="join-core">JOIN</div><div class="join-source">Metas / Tiendas</div></div>
+      <div class="formula">cantidad × precio → gross_sales → descuento → net_sales</div>
+    </div>
+    <div class="panel metric-panel">
+      <div class="metric"><code>gross_sales</code><strong>Ventas brutas</strong><span>Cantidad × precio.</span></div>
+      <div class="metric"><code>discount_amount</code><strong>Descuento</strong><span>Aplicación del porcentaje de promoción cuando corresponde.</span></div>
+      <div class="metric"><code>net_sales</code><strong>Ventas netas</strong><span>Resultado después de aplicar el descuento.</span></div>
+      <div class="time-fields"><span class="pill">Mes</span><span class="pill">Día de la semana</span><span class="pill">Tendencias</span></div>
+    </div>
+  </div>
+  <div class="notes"><div class="timing">Guion · transformación</div><p>Con los datos limpios, procedimos a la transformación. Aquí integramos las transacciones con las tablas maestras. Calculamos métricas que no venían originalmente, aplicando la lógica financiera: calculamos las ventas brutas (cantidad x precio), aplicamos el porcentaje de descuento si había promoción, y obtuvimos las ventas netas. También extrajimos el mes y día de la semana para los análisis de tendencias.</p></div>
+</section>
+
+<!-- 07 -->
+<section class="slide" data-title="Carga y consultas">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Lab 1B · Load + Query</div><div>07 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">07 · Persistencia y análisis</div>
+  <h2 class="title">El pipeline termina en <span class="accent">respuestas.</span></h2>
+  <p class="subtitle">El dataset enriquecido se carga de manera idempotente y queda disponible para consultas analíticas que responden a los requerimientos del Lab 1A.</p>
+  <div class="load-layout">
+    <div class="panel destinations">
+      <h3 style="margin-top:0">Destinos de carga</h3>
+      <div class="dest"><div class="dest-top"><strong>CSV Integrado</strong><span>▤</span></div><span class="small">Dataset enriquecido exportado para uso analítico.</span></div>
+      <div class="dest"><div class="dest-top"><strong>SQLite</strong><code>retail_analytics.db</code></div><span class="small">Base de datos analítica centralizada.</span></div>
+      <div class="idempotent">✓ Carga idempotente: ejecución repetible sin generar inconsistencias.</div>
+    </div>
+    <div class="panel query-panel">
+      <h3 style="margin-top:0">De datos a respuestas de negocio</h3>
+      <div class="query-chain">
+        <div class="chain-item"><strong>Dataset</strong><span>Enriquecido</span></div>
+        <div class="chain-item"><strong>Load</strong><span>SQLite + CSV</span></div>
+        <div class="chain-item"><strong>queries.py</strong><span>Req. 1 → 6</span></div>
+        <div class="chain-item"><strong>Resultados</strong><span>Lab 1A</span></div>
+      </div>
+      <div class="results">
+        <div class="result"><b>Rendimiento por tienda</b><span>Metas y cumplimiento</span><div class="fake-chart"><i class="bar" style="height:45%"></i><i class="bar" style="height:70%"></i><i class="bar" style="height:55%"></i><i class="bar" style="height:88%"></i></div></div>
+        <div class="result"><b>Categorías líderes</b><span>Ventas y desempeño</span><div class="fake-chart"><i class="bar" style="height:78%"></i><i class="bar" style="height:52%"></i><i class="bar" style="height:92%"></i><i class="bar" style="height:66%"></i></div></div>
+        <div class="result"><b>Promociones</b><span>Impacto en ventas</span><div class="fake-chart"><i class="bar" style="height:40%"></i><i class="bar" style="height:63%"></i><i class="bar" style="height:82%"></i><i class="bar" style="height:73%"></i></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes"><div class="timing">Guion · carga y resultados</div><p>Finalmente, cargamos este dataset enriquecido de manera idempotente en una base de datos SQLite y exportamos un CSV. Para demostrar el éxito del pipeline, conectamos un script de SQL (queries.py) y respondimos con total precisión a los requerimientos originales del Lab 1A, demostrando qué tiendas cumplían metas y qué categorías lideraban las ventas.</p><p><strong>Consejo:</strong> si el profesor lo pide, aquí es mejor mostrar las consultas funcionando en la terminal/IDE o las gráficas reales del proyecto, en lugar de colocar bloques de código gigantes en la diapositiva.</p></div>
+</section>
+
+<!-- 08 -->
+<section class="slide" data-title="Conclusiones">
+  <div class="topline"><div class="brand"><i class="brand-dot"></i> Cierre · Lecciones aprendidas</div><div>08 / 08</div></div>
+  <div class="kicker" style="margin-top:4vh">08 · Conclusiones</div>
+  <h2 class="title">Construir un Dashboard <span class="accent">nunca fue el primer paso.</span></h2>
+  <p class="subtitle">El aprendizaje central fue pensar en sistemas: calidad, modularidad y escalabilidad para resolver el problema real de toma de decisiones de la gerencia.</p>
+  <div class="conclusion-grid">
+    <div class="panel conclusion"><div class="num">01</div><h3>🔧 Modularidad</h3><p>Si mañana se suma una nueva sucursal con otro formato, solo debemos adaptar el módulo de extracción sin reconstruir todo el pipeline.</p></div>
+    <div class="panel conclusion"><div class="num">02</div><h3>🧹 Calidad de datos</h3><p>La calidad visual no compensa la mala calidad de datos. Un dashboard atractivo no sirve si la información que lo alimenta es incorrecta.</p></div>
+    <div class="panel conclusion"><div class="num">03</div><h3>🌐 Pensamiento sistémico</h3><p>El verdadero valor está en el pipeline completo: convertir datos heterogéneos en información confiable, escalable y útil para decidir.</p></div>
+  </div>
+  <div class="panel final-flow">
+    <span class="final-step">Datos confiables</span><span class="final-arrow">→</span>
+    <span class="final-step">Análisis confiable</span><span class="final-arrow">→</span>
+    <span class="final-step">Mejores decisiones</span>
+  </div>
+  <div class="timing">Distribución sugerida: 30% Lab 1A · 50% Lab 1B · 20% conclusiones + resultados</div>
+  <div class="notes"><div class="timing">Guion · cierre</div><p>Para concluir: este proyecto nos enseñó que construir un dashboard nunca es el primer paso. La calidad visual no compensa la mala calidad de datos. Al construir un pipeline ETL modular, garantizamos que si el día de mañana se suma una nueva sucursal con otro formato, solo debemos cambiar el módulo de extracción. Construimos una solución de datos escalable, que resuelve el problema real de toma de decisiones de la gerencia.</p><p><strong>Consejos generales para toda la exposición:</strong> evitar bloques gigantes de código; conectar siempre tecnología con negocio; explicar, por ejemplo, que un precio negativo afectaría el balance financiero reportado a gerencia. Distribución sugerida: 30% Lab 1A, 50% Lab 1B, 20% conclusiones y resultados.</p></div>
+</section>
+
+<div class="controls">
+  <button class="ctrl" id="prev" aria-label="Anterior">←</button>
+  <button class="ctrl" id="next" aria-label="Siguiente">→</button>
+  <button class="ctrl" id="notesBtn">Notas</button>
+  <button class="ctrl" id="fullscreen">⛶</button>
+</div>
+<div class="footer">
+  <span id="counter">01 / 08</span>
+  <div class="progressbar"><div class="progressfill" id="progress"></div></div>
+  <span>← → navegar · N notas · F pantalla completa</span>
+</div>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let current=0;
+const counter=document.getElementById('counter');
+const progress=document.getElementById('progress');
+const notesPanel=document.createElement('div');
+notesPanel.className='notes';
+document.body.appendChild(notesPanel);
+
+function show(i){
+  if(i<0)i=0;if(i>=slides.length)i=slides.length-1;
+  slides[current].classList.remove('active');
+  current=i;
+  slides[current].classList.add('active');
+  counter.textContent=String(current+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+  progress.style.width=((current+1)/slides.length*100)+'%';
+  closeNotes();
+}
+function openNotes(){
+  const source=slides[current].querySelector('.notes');
+  if(!source)return;
+  notesPanel.innerHTML=source.innerHTML;
+  notesPanel.classList.add('open');
+}
+function closeNotes(){notesPanel.classList.remove('open')}
+function toggleNotes(){notesPanel.classList.contains('open')?closeNotes():openNotes()}
+document.getElementById('prev').onclick=()=>show(current-1);
+document.getElementById('next').onclick=()=>show(current+1);
+document.getElementById('notesBtn').onclick=toggleNotes;
+document.getElementById('fullscreen').onclick=()=>{
+  if(!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+  else document.exitFullscreen?.();
+};
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1)}
+  if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}
+  if(e.key.toLowerCase()==='n')toggleNotes();
+  if(e.key.toLowerCase()==='f'){
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  }
+  if(e.key==='Escape')closeNotes();
+});
+let startX=null;
+document.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  if(startX===null)return;
+  const dx=e.changedTouches[0].clientX-startX;
+  if(Math.abs(dx)>55)show(current+(dx<0?1:-1));
+  startX=null;
+});
+</script>
+</body>
+</html>
