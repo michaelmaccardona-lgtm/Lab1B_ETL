@@ -1,11 +1,22 @@
 """
-Module: main.py
-Description: Main orchestration script that runs the end-to-end ETL pipeline for Lab 1B.
+Módulo: main.py
+
+Descripción General:
+Este es el "Orquestador Principal" (Entry Point) del proyecto. Su única responsabilidad es ejecutar 
+el pipeline ETL de principio a fin, llamando a cada módulo en el orden técnico correcto.
+
+Flujo de Ejecución (Pipeline):
+1. Importa las rutas relativas para ubicar dinámicamente las carpetas 'data/' y 'database/'.
+2. Llama a `extract.py` para leer todos los datos en crudo (CSV, JSON, XML).
+3. Llama a `transform.py` para evaluar la calidad, limpiar nulos/duplicados/negativos y calcular los ingresos netos.
+4. Llama a `load.py` para guardar el resultado de manera segura (y repetible) en un nuevo CSV y en SQLite.
+5. Finalmente, llama a `queries.py` para cruzar los datos y generar los reportes gerenciales en consola.
 """
 
 from pathlib import Path
 from extract import extract_all_transactions, extract_reference_data
 from transform import profile_raw_data, print_profiling_report, clean_and_harmonize_data, transform_and_integrate_data
+from validate import validate_integrated_data
 from load import save_to_csv, load_to_sqlite, load_reference_tables
 from queries import run_analytical_queries
 
@@ -22,37 +33,48 @@ def run_pipeline():
     PROCESSED_CSV_PATH = BASE_DIR / 'data' / 'processed' / 'integrated_sales.csv'
     DB_PATH = BASE_DIR / 'database' / 'retail_analytics.db'
 
-    # 1. EXTRACTION
+    # 1. EXTRACTION (Extracción)
+    # Extraemos los datos crudos (raw) de las 3 ciudades y las tablas maestras.
     print("\n[STEP 1] Extracting raw transactions and reference tables...")
     df_raw = extract_all_transactions(RAW_DIR)
     ref_data = extract_reference_data(RAW_DIR)
     print(f" -> Extracted {len(df_raw)} raw transaction records.")
 
-    # 2. PROFILING
+    # 2. PROFILING (Perfilamiento)
+    # Analizamos los datos crudos para encontrar errores (nulos, duplicados, negativos).
     print("\n[STEP 2] Running data profiling on raw transactions...")
     profiling_summary = profile_raw_data(df_raw)
     print_profiling_report(profiling_summary)
 
-    # 3. CLEANING & HARMONIZATION
+    # 3. CLEANING & HARMONIZATION (Limpieza y Armonización)
+    # Aplicamos reglas para limpiar los errores encontrados en el paso anterior.
     print("[STEP 3] Cleaning and harmonizing raw data...")
     df_clean = clean_and_harmonize_data(df_raw)
     print(f" -> Clean transactions remaining: {len(df_clean)} records.")
 
-    # 4. TRANSFORMATION & INTEGRATION
-    print("\n[STEP 4] Transforming, integrating with master tables, and running assertions...")
+    # 4. TRANSFORMATION & INTEGRATION (Transformación)
+    # Cruzamos (JOIN) las transacciones limpias con las tablas maestras para calcular ventas netas, brutas y descuentos.
+    print("\n[STEP 4] Transforming and integrating with master tables...")
     df_integrated = transform_and_integrate_data(df_clean, ref_data)
     print(f" -> Integrated transactions ready: {len(df_integrated)} records.")
 
-    # 5. LOADING
+    # 4b. VALIDATION (Validación)
+    # Verificamos matemáticamente que todo haya quedado bien cruzado (Quality Gate final).
+    validate_integrated_data(df_integrated)
+
+    # 5. LOADING (Carga de Datos)
+    # Guardamos el resultado final en un archivo CSV y en la base de datos SQLite.
     print("\n[STEP 5] Persisting data to CSV and SQLite...")
     save_to_csv(df_integrated, PROCESSED_CSV_PATH)
     load_to_sqlite(df_integrated, DB_PATH)
 
-    # Cargar tablas de referencia en SQLite (requerido para REQ 3 – monthly_targets JOIN)
+    # 5b. CARGA DE TABLAS MAESTRAS (Para uso analítico)
+    # Guardamos también las tablas de referencia (como metas mensuales) en la BD para poder hacer reportes SQL.
     print("\n[STEP 5b] Loading reference tables into SQLite for analytical queries...")
     load_reference_tables(ref_data, DB_PATH)
 
-    # 6. QUERY & VERIFICATION
+    # 6. QUERY & VERIFICATION (Consultas SQL)
+    # Ejecutamos las consultas SQL finales para responder a los requerimientos de negocio (Lab 1A).
     print("\n[STEP 6] Executing Activity 11 analytical SQL queries...")
     run_analytical_queries(DB_PATH)
 

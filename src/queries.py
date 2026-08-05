@@ -1,7 +1,19 @@
 """
-Module: queries.py
-Description: Executes the 4 analytical SQL queries for Activity 11 (Lab 1B)
-             and saves each result as a named table in SQLite for easy viewing.
+Módulo: queries.py
+
+Descripción General:
+Este módulo ejecuta la capa analítica final (Activity 11 - Lab 1B). 
+Conecta directamente a la base de datos SQLite previamente cargada para resolver las grandes 
+preguntas de negocio formuladas en el Lab 1A usando consultas SQL complejas.
+
+Responsabilidades Clave:
+1. Conectarse de forma segura a `retail_analytics.db`.
+2. Requerimiento 1: Evaluar ventas globales agrupándolas por Día y Mes.
+3. Requerimiento 2: Sacar el ranking (RANK) y la participación de los productos y sus categorías.
+4. Requerimiento 3: Cruzar las ventas netas reales vs. metas esperadas mediante un bloque `CASE WHEN`.
+5. Requerimiento 4: Medir el ROI de las campañas promocionales filtrando (BETWEEN) por sus fechas.
+6. Guarda los resultados de estas consultas analíticas de vuelta en la base de datos como 
+   nuevas tablas (ej. 'REQ1_daily_sales_aggregate') para que la gerencia o un Dashboard las consuma fácil.
 """
 
 import sqlite3
@@ -23,6 +35,8 @@ def run_analytical_queries(db_path: Path) -> None:
     # ─────────────────────────────────────────────────────────────────────────
     # REQ 1: Daily Sales Aggregate + Monthly Trend
     # ─────────────────────────────────────────────────────────────────────────
+    # Esta consulta agrupa las ventas por día y por tienda. 
+    # Cuenta transacciones, suma unidades y calcula ventas brutas, descuentos y ventas netas.
     q1_daily = """
     SELECT
         sale_date                               AS date,
@@ -44,6 +58,8 @@ def run_analytical_queries(db_path: Path) -> None:
     print("\n--- REQ 1: Daily Sales Aggregate ---")
     print(df_q1.to_string(index=False))
 
+    # Esta consulta agrupa las ventas de forma MENSUAL.
+    # Usa strftime('%Y-%m') para extraer el mes de la fecha de venta.
     q1_monthly = """
     SELECT
         strftime('%Y-%m', sale_date)            AS month,
@@ -66,6 +82,9 @@ def run_analytical_queries(db_path: Path) -> None:
     # ─────────────────────────────────────────────────────────────────────────
     # REQ 2: Category Performance + Product Breakdown
     # ─────────────────────────────────────────────────────────────────────────
+    # Calcula el rendimiento por Categoria de Producto.
+    # Además de sumar ventas, usa funciones de ventana (OVER) para calcular 
+    # el porcentaje que representa cada categoría sobre el gran total y para asignar un ranking (RANK).
     q2_category = """
     SELECT
         category,
@@ -90,6 +109,8 @@ def run_analytical_queries(db_path: Path) -> None:
     print("\n--- REQ 2: Sales Performance by Category ---")
     print(df_q2.to_string(index=False))
 
+    # Calcula el rendimiento individual de cada PRODUCTO dentro de su categoría.
+    # Usa PARTITION BY sa.category para rankear qué producto vende más dentro de su misma familia.
     q2_product = """
     SELECT
         sa.category,
@@ -115,6 +136,9 @@ def run_analytical_queries(db_path: Path) -> None:
     # ─────────────────────────────────────────────────────────────────────────
     # REQ 3: Table of Compliance Facts
     # ─────────────────────────────────────────────────────────────────────────
+    # Cruza las ventas netas reales contra la tabla de METAS MENSUALES (monthly_targets).
+    # Genera un estado ('ACHIEVED', 'NEAR TARGET', 'BELOW TARGET') usando un bloque CASE WHEN 
+    # dependiendo de si superaron la meta, se acercaron (al 80%) o fracasaron.
     q3 = """
     SELECT
         st.store_name,
@@ -150,6 +174,9 @@ def run_analytical_queries(db_path: Path) -> None:
     # ─────────────────────────────────────────────────────────────────────────
     # REQ 4: Campaign Effectiveness + Sales Lift
     # ─────────────────────────────────────────────────────────────────────────
+    # Mide la efectividad de las PROMOCIONES (Marketing).
+    # Filtra las transacciones para que solo cuenten las que ocurrieron BETWEEN la fecha de inicio 
+    # y la fecha de fin de la campaña promocional. Calcula el Retorno de Inversión (ROI).
     q4_effectiveness = """
     SELECT
         p.campaign_name,

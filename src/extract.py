@@ -1,8 +1,17 @@
 """
-Module: extract.py
-Description: Ingests raw transactional data from heterogeneous formats (CSV, JSON, XML)
-             and reference CSV files without applying cleaning or business calculations.
-             Converts all transaction sources to a common technical schema.
+Módulo: extract.py
+
+Descripción General:
+Este módulo es el responsable de la fase de Extracción (Extract) del pipeline ETL. 
+Su objetivo principal es conectarse a múltiples fuentes de datos que vienen en formatos heterogéneos 
+(CSV para Cali, JSON para Bogotá y XML para Medellín) e ingerir los datos en crudo (raw).
+
+Responsabilidades Clave:
+1. Leer los archivos transaccionales sin aplicar reglas de negocio o cálculos financieros.
+2. Leer las tablas maestras de referencia (productos, tiendas, promociones, metas).
+3. Renombrar las columnas de cada fuente (que pueden venir en distintos idiomas o formatos) 
+   para ajustarlas a un "Esquema Común" (COMMON_TRANSACTION_COLUMNS).
+4. Retornar un único DataFrame unificado que está listo para la siguiente fase de perfilamiento y limpieza.
 """
 
 import pandas as pd
@@ -30,8 +39,13 @@ def extract_sales_cali(file_path: Path) -> pd.DataFrame:
     Columnas originales ya coinciden con el esquema común.
     """
     try:
+        # Usa pandas para leer el archivo CSV directamente
         df = pd.read_csv(file_path)
+        
+        # reindex() asegura que las columnas del DataFrame queden exactamente en el orden 
+        # del esquema común. Si falta una columna, la crea con valores NaN (nulos).
         df = df.reindex(columns=COMMON_TRANSACTION_COLUMNS)
+        
         print(f"  [EXTRACT] Cali CSV: {len(df)} records loaded.")
         return df
     except Exception as e:
@@ -53,9 +67,12 @@ def extract_sales_bogota(file_path: Path) -> pd.DataFrame:
         medio_pago      -> payment_method
     """
     try:
+        # Abre el archivo JSON en modo lectura ('r')
         with open(file_path, 'r', encoding='utf-8') as f:
+            # json.load() convierte el texto del archivo JSON en una lista de diccionarios en Python
             data = json.load(f)
 
+        # Convierte esa lista de diccionarios en una tabla (DataFrame) de Pandas
         df = pd.DataFrame(data)
 
         # Renombrar columnas al esquema común
@@ -92,17 +109,21 @@ def extract_sales_medellin(file_path: Path) -> pd.DataFrame:
         payment     -> payment_method
     """
     try:
+        # Parseamos el archivo XML para leer su estructura de árbol
         tree = ET.parse(file_path)
-        root = tree.getroot()
+        root = tree.getroot() # Obtenemos el nodo principal (raíz)
 
         records = []
+        # Iteramos por cada nodo hijo (cada transacción individual)
         for elem in root:
             record = {}
+            # Iteramos por cada etiqueta dentro de la transacción (date, sku, etc.)
             for child in elem:
-                record[child.tag] = child.text
+                record[child.tag] = child.text # Guardamos el valor de la etiqueta en el diccionario
             if record:
                 records.append(record)
 
+        # Convertimos la lista de diccionarios a un DataFrame
         df = pd.DataFrame(records)
 
         # Renombrar columnas al esquema común
@@ -145,9 +166,12 @@ def extract_all_transactions(raw_dir: Path) -> pd.DataFrame:
     """
     Lee las 3 fuentes heterogéneas y las consolida en un único DataFrame en crudo.
     """
+    # Extraemos independientemente cada archivo usando su función específica
     df_cali     = extract_sales_cali(raw_dir / 'sales_cali.csv')
     df_bogota   = extract_sales_bogota(raw_dir / 'sales_bogota.json')
     df_medellin = extract_sales_medellin(raw_dir / 'sales_medellin.xml')
 
+    # pd.concat() une los tres DataFrames uno debajo del otro. 
+    # ignore_index=True reinicia los índices para que vayan del 0 al total de filas.
     raw_transactions = pd.concat([df_cali, df_bogota, df_medellin], ignore_index=True)
     return raw_transactions

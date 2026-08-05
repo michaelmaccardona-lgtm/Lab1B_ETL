@@ -242,7 +242,7 @@ L00241,2026-03-18,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bog
 L00242,2026-03-15,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,3,11,Sunday
 L00243,2026-03-24,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,3,13,Tuesday
 L00244,2026-04-13,S02,P007,1,310000.0,PROMO10B,Transfer,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.1,310000.0,310.0,309690.0,2026,4,16,Monday
-L00245,2026-08-04,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,8,32,Tuesday
+L00245,2026-04-08,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,15,Wednesday
 L00246,2026-03-23,S02,P002,1,285000.0,NONE,Transfer,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,3,13,Monday
 L00247,2026-03-19,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,3,12,Thursday
 L00248,2026-02-18,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,8,Wednesday
@@ -252,135 +252,135 @@ L00251,2026-02-28,S02,P001,1,145000.0,NONE,Transfer,Coffee Maker Basic,Small App
 L00252,2026-02-26,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,2,9,Thursday
 L00253,2026-03-14,S02,P004,1,390000.0,PROMO15,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.15,390000.0,585.0,389415.0,2026,3,11,Saturday
 L00254,2026-02-18,S02,P004,2,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,2,8,Wednesday
-L00255,2026-05-03,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,5,18,Sunday
+L00255,2026-03-05,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,3,10,Thursday
 L00256,2026-03-22,S02,P005,1,220000.0,PROMO12,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.12,220000.0,264.0,219736.0,2026,3,12,Sunday
-L00257,2026-05-02,S02,P003,2,175000.0,NONE,Cash,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,5,18,Saturday
+L00257,2026-02-05,S02,P003,2,175000.0,NONE,Cash,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,2,6,Thursday
 L00258,2026-02-22,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,8,Sunday
-L00259,2026-05-04,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,5,19,Monday
-L00260,2026-07-03,S02,P004,2,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,7,27,Friday
+L00259,2026-04-05,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,4,14,Sunday
+L00260,2026-03-07,S02,P004,2,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,3,10,Saturday
 L00262,2026-04-29,S02,P005,3,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,660000.0,0.0,660000.0,2026,4,18,Wednesday
 L00263,2026-04-19,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,16,Sunday
 L00264,2026-04-28,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,4,18,Tuesday
 L00265,2026-03-23,S02,P003,2,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,3,13,Monday
 L00266,2026-03-29,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,13,Sunday
-L00267,2026-12-02,S02,P001,1,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,12,49,Wednesday
+L00267,2026-02-12,S02,P001,1,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,2,7,Thursday
 L00268,2026-02-17,S02,P002,4,285000.0,NONE,Card,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,1140000.0,0.0,1140000.0,2026,2,8,Tuesday
-L00269,2026-03-02,S02,P003,4,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,700000.0,0.0,700000.0,2026,3,10,Monday
-L00270,2026-07-03,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,7,27,Friday
+L00269,2026-02-03,S02,P003,4,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,700000.0,0.0,700000.0,2026,2,6,Tuesday
+L00270,2026-03-07,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,3,10,Saturday
 L00271,2026-02-22,S02,P003,2,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,2,8,Sunday
 L00272,2026-02-21,S02,P001,1,145000.0,NONE,Card,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,2,8,Saturday
-L00273,2026-11-03,S02,P008,3,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,11,45,Tuesday
+L00273,2026-03-11,S02,P008,3,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,3,11,Wednesday
 L00274,2026-02-20,S02,P006,1,165000.0,NONE,Transfer,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,2,8,Friday
-L00275,2026-01-03,S02,P001,2,145000.0,NONE,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,290000.0,0.0,290000.0,2026,1,1,Saturday
+L00275,2026-03-01,S02,P001,2,145000.0,NONE,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,290000.0,0.0,290000.0,2026,3,9,Sunday
 L00276,2026-03-31,S02,P005,2,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,440000.0,0.0,440000.0,2026,3,14,Tuesday
-L00277,2026-03-04,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,3,10,Wednesday
+L00277,2026-04-03,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,14,Friday
 L00278,2026-03-28,S02,P008,1,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,13,Saturday
-L00279,2026-06-03,S02,P004,1,390000.0,PROMO15,Cash,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.15,390000.0,585.0,389415.0,2026,6,23,Wednesday
+L00279,2026-03-06,S02,P004,1,390000.0,PROMO15,Cash,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.15,390000.0,585.0,389415.0,2026,3,10,Friday
 L00280,2026-03-23,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,3,13,Monday
 L00281,2026-02-28,S02,P009,1,92000.0,PROMO08,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.08,92000.0,73.60000000000001,91926.4,2026,2,9,Saturday
 L00282,2026-04-25,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,4,17,Saturday
 L00283,2026-04-13,S02,P004,1,390000.0,NONE,Cash,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,4,16,Monday
-L00284,2026-10-02,S02,P009,1,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,10,40,Friday
-L00285,2026-12-04,S02,P012,2,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,12,49,Friday
-L00286,2026-10-03,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,10,40,Saturday
+L00284,2026-02-10,S02,P009,1,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,2,7,Tuesday
+L00285,2026-04-12,S02,P012,2,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,4,15,Sunday
+L00286,2026-03-10,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,3,11,Tuesday
 L00287,2026-02-18,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,2,8,Wednesday
 L00288,2026-02-26,S02,P005,3,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,660000.0,0.0,660000.0,2026,2,9,Thursday
 L00289,2026-03-13,S02,P006,1,165000.0,NONE,Cash,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,3,11,Friday
 L00290,2026-04-28,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,4,18,Tuesday
 L00291,2026-03-28,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,13,Saturday
-L00292,2026-07-02,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,7,27,Thursday
+L00292,2026-02-07,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,6,Saturday
 L00293,2026-02-27,S02,P008,1,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,2,9,Friday
 L00294,2026-02-13,S02,P003,2,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,2,7,Friday
-L00295,2026-12-03,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,12,49,Thursday
+L00295,2026-03-12,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,3,11,Thursday
 L00296,2026-04-17,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,4,16,Friday
 L00297,2026-04-16,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,4,16,Thursday
 L00298,2026-02-15,S02,P014,3,198000.0,NONE,Card,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,594000.0,0.0,594000.0,2026,2,7,Sunday
 L00299,2026-03-27,S02,P015,2,86000.0,NONE,Transfer,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,172000.0,0.0,172000.0,2026,3,13,Friday
 L00300,2026-03-18,S02,P010,1,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,3,12,Wednesday
-L00301,2026-11-04,S02,P005,1,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,11,45,Wednesday
+L00301,2026-04-11,S02,P005,1,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,15,Saturday
 L00302,2026-03-14,S02,P010,2,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,3,11,Saturday
 L00303,2026-04-16,S02,P010,1,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,4,16,Thursday
-L00304,2026-02-03,S02,P004,2,390000.0,NONE,Cash,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,2,6,Tuesday
+L00304,2026-03-02,S02,P004,2,390000.0,NONE,Cash,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,3,10,Monday
 L00305,2026-02-22,S02,P001,2,145000.0,NONE,Card,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,290000.0,0.0,290000.0,2026,2,8,Sunday
 L00306,2026-04-23,S02,P005,2,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,440000.0,0.0,440000.0,2026,4,17,Thursday
 L00307,2026-02-19,S02,P005,2,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,440000.0,0.0,440000.0,2026,2,8,Thursday
-L00308,2026-10-03,S02,P005,4,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,880000.0,0.0,880000.0,2026,10,40,Saturday
+L00308,2026-03-10,S02,P005,4,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,880000.0,0.0,880000.0,2026,3,11,Tuesday
 L00309,2026-02-13,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,7,Friday
 L00310,2026-04-29,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,4,18,Wednesday
 L00312,2026-04-15,S02,P005,1,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,16,Wednesday
-L00313,2026-08-04,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,8,32,Tuesday
+L00313,2026-04-08,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,15,Wednesday
 L00314,2026-04-28,S02,P011,1,138000.0,NONE,Transfer,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,4,18,Tuesday
-L00315,2026-07-03,S02,P014,2,198000.0,NONE,Transfer,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,396000.0,0.0,396000.0,2026,7,27,Friday
+L00315,2026-03-07,S02,P014,2,198000.0,NONE,Transfer,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,396000.0,0.0,396000.0,2026,3,10,Saturday
 L00316,2026-02-17,S02,P002,1,285000.0,NONE,Card,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,2,8,Tuesday
 L00317,2026-02-26,S02,P002,1,285000.0,NONE,Transfer,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,2,9,Thursday
 L00318,2026-04-19,S02,P004,1,390000.0,NONE,Cash,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,4,16,Sunday
 L00319,2026-02-17,S02,P015,1,86000.0,NONE,Transfer,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,86000.0,0.0,86000.0,2026,2,8,Tuesday
-L00320,2026-04-03,S02,P008,2,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,4,14,Friday
-L00321,2026-10-02,S02,P010,2,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,10,40,Friday
+L00320,2026-03-04,S02,P008,2,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,3,10,Wednesday
+L00321,2026-02-10,S02,P010,2,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,2,7,Tuesday
 L00322,2026-02-21,S02,P013,1,135000.0,NONE,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,2,8,Saturday
 L00323,2026-02-02,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,2,6,Monday
-L00324,2026-10-03,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,10,40,Saturday
+L00324,2026-03-10,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,3,11,Tuesday
 L00325,2026-02-23,S02,P009,2,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,2,9,Monday
 L00326,2026-03-29,S02,P002,2,285000.0,NONE,Cash,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,570000.0,0.0,570000.0,2026,3,13,Sunday
 L00327,2026-03-20,S02,P013,2,135000.0,NONE,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,270000.0,0.0,270000.0,2026,3,12,Friday
-L00328,2026-09-03,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,9,36,Thursday
+L00328,2026-03-09,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,3,11,Monday
 L00329,2026-02-16,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,8,Monday
 L00330,2026-04-27,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,18,Monday
 L00331,2026-03-27,S02,P002,1,285000.0,NONE,Card,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,3,13,Friday
 L00332,2026-02-16,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,2,8,Monday
-L00333,2026-06-03,S02,P002,1,285000.0,NONE,Cash,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,6,23,Wednesday
+L00333,2026-03-06,S02,P002,1,285000.0,NONE,Cash,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,3,10,Friday
 L00334,2026-02-24,S02,P004,1,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,2,9,Tuesday
-L00335,2026-12-03,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,12,49,Thursday
-L00336,2026-11-04,S02,P013,1,135000.0,PROMO20,Card,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.2,135000.0,270.0,134730.0,2026,11,45,Wednesday
+L00335,2026-03-12,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,3,11,Thursday
+L00336,2026-04-11,S02,P013,1,135000.0,PROMO20,Card,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.2,135000.0,270.0,134730.0,2026,4,15,Saturday
 L00337,2026-03-16,S02,P001,1,145000.0,NONE,Card,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,3,12,Monday
 L00338,2026-04-17,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,4,16,Friday
 L00339,2026-03-23,S02,P012,2,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,3,13,Monday
-L00340,2026-07-04,S02,P008,2,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,7,27,Saturday
+L00340,2026-04-07,S02,P008,2,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,4,15,Tuesday
 L00341,2026-02-17,S02,P015,1,86000.0,NONE,Transfer,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,86000.0,0.0,86000.0,2026,2,8,Tuesday
 L00342,2026-04-16,S02,P011,2,138000.0,NONE,Card,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,276000.0,0.0,276000.0,2026,4,16,Thursday
 L00343,2026-02-14,S02,P002,3,285000.0,NONE,Cash,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,855000.0,0.0,855000.0,2026,2,7,Saturday
 L00344,2026-04-25,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,17,Saturday
 L00345,2026-02-26,S02,P015,1,86000.0,NONE,Cash,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,86000.0,0.0,86000.0,2026,2,9,Thursday
-L00346,2026-04-02,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,4,14,Thursday
+L00346,2026-02-04,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,6,Wednesday
 L00347,2026-02-13,S02,P002,2,285000.0,NONE,Card,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,570000.0,0.0,570000.0,2026,2,7,Friday
 L00348,2026-04-13,S02,P014,2,198000.0,NONE,Cash,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,396000.0,0.0,396000.0,2026,4,16,Monday
 L00349,2026-02-18,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,2,8,Wednesday
 L00350,2026-04-30,S02,P004,1,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,4,18,Thursday
-L00351,2026-06-04,S02,P010,3,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,345000.0,0.0,345000.0,2026,6,23,Thursday
+L00351,2026-04-06,S02,P010,3,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,345000.0,0.0,345000.0,2026,4,15,Monday
 L00352,2026-03-28,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,3,13,Saturday
-L00353,2026-08-02,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,8,31,Sunday
-L00354,2026-06-02,S02,P010,2,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,6,23,Tuesday
+L00353,2026-02-08,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,2,6,Sunday
+L00354,2026-02-06,S02,P010,2,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,2,6,Friday
 L00355,2026-03-29,S02,P013,1,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,3,13,Sunday
 L00356,2026-02-17,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,8,Tuesday
 L00357,2026-02-23,S02,P009,2,92000.0,PROMO08,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.08,184000.0,147.20000000000002,183852.8,2026,2,9,Monday
-L00358,2026-11-03,S02,P014,1,198000.0,NONE,Cash,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,198000.0,0.0,198000.0,2026,11,45,Tuesday
-L00359,2026-08-04,S02,P011,1,138000.0,NONE,Cash,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,8,32,Tuesday
+L00358,2026-03-11,S02,P014,1,198000.0,NONE,Cash,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,198000.0,0.0,198000.0,2026,3,11,Wednesday
+L00359,2026-04-08,S02,P011,1,138000.0,NONE,Cash,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,4,15,Wednesday
 L00360,2026-03-23,S02,P009,1,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,3,13,Monday
 L00361,2026-04-19,S02,P006,3,165000.0,NONE,Card,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,495000.0,0.0,495000.0,2026,4,16,Sunday
 L00362,2026-04-23,S02,P011,1,138000.0,NONE,Card,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,4,17,Thursday
-L00363,2026-06-02,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,6,23,Tuesday
-L00364,2026-03-04,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,10,Wednesday
+L00363,2026-02-06,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,2,6,Friday
+L00364,2026-04-03,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,4,14,Friday
 L00365,2026-02-22,S02,P009,2,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,2,8,Sunday
-L00366,2026-01-02,S02,P001,1,145000.0,NONE,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,1,1,Friday
-L00367,2026-07-03,S02,P015,1,86000.0,NONE,Cash,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,86000.0,0.0,86000.0,2026,7,27,Friday
+L00366,2026-02-01,S02,P001,1,145000.0,NONE,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,2,5,Sunday
+L00367,2026-03-07,S02,P015,1,86000.0,NONE,Cash,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,86000.0,0.0,86000.0,2026,3,10,Saturday
 L00368,2026-04-27,S02,P012,2,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,4,18,Monday
-L00369,2026-12-04,S02,P004,2,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,12,49,Friday
-L00370,2026-01-04,S02,P014,1,198000.0,NONE,Cash,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,198000.0,0.0,198000.0,2026,1,1,Sunday
+L00369,2026-04-12,S02,P004,2,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,4,15,Sunday
+L00370,2026-04-01,S02,P014,1,198000.0,NONE,Cash,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,198000.0,0.0,198000.0,2026,4,14,Wednesday
 L00371,2026-02-15,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,2,7,Sunday
-L00372,2026-01-04,S02,P008,2,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,1,1,Sunday
-L00373,2026-05-03,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,5,18,Sunday
-L00374,2026-02-03,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,6,Tuesday
+L00372,2026-04-01,S02,P008,2,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,4,14,Wednesday
+L00373,2026-03-05,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,3,10,Thursday
+L00374,2026-03-02,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,10,Monday
 L00375,2026-02-20,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,8,Friday
 L00376,2026-04-14,S02,P012,2,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,4,16,Tuesday
 L00377,2026-04-22,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,17,Wednesday
-L00378,2026-12-04,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,12,49,Friday
+L00378,2026-04-12,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,15,Sunday
 L00379,2026-03-31,S02,P009,3,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,276000.0,0.0,276000.0,2026,3,14,Tuesday
-L00380,2026-01-04,S02,P011,1,138000.0,NONE,Cash,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,1,1,Sunday
+L00380,2026-04-01,S02,P011,1,138000.0,NONE,Cash,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,4,14,Wednesday
 L00381,2026-02-28,S02,P009,1,92000.0,PROMO08,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.08,92000.0,73.60000000000001,91926.4,2026,2,9,Saturday
-L00382,2026-05-03,S02,P007,2,310000.0,NONE,Card,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.0,620000.0,0.0,620000.0,2026,5,18,Sunday
-L00383,2026-09-03,S02,P013,2,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,270000.0,0.0,270000.0,2026,9,36,Thursday
+L00382,2026-03-05,S02,P007,2,310000.0,NONE,Card,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.0,620000.0,0.0,620000.0,2026,3,10,Thursday
+L00383,2026-03-09,S02,P013,2,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,270000.0,0.0,270000.0,2026,3,11,Monday
 L00384,2026-03-14,S02,P001,3,145000.0,NONE,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,435000.0,0.0,435000.0,2026,3,11,Saturday
-L00385,2026-10-02,S02,P004,1,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,10,40,Friday
+L00385,2026-02-10,S02,P004,1,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,2,7,Tuesday
 L00386,2026-03-27,S02,P008,1,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,13,Friday
 L00387,2026-04-29,S02,P011,1,138000.0,NONE,Cash,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,4,18,Wednesday
 L00388,2026-02-14,S02,P008,1,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,2,7,Saturday
@@ -393,12 +393,12 @@ L00394,2026-03-26,S02,P002,1,285000.0,NONE,Transfer,Coffee Maker Premium,Small A
 L00395,2026-04-27,S02,P004,2,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,4,18,Monday
 L00396,2026-02-17,S02,P011,1,138000.0,NONE,Card,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,138000.0,0.0,138000.0,2026,2,8,Tuesday
 L00397,2026-03-13,S02,P008,1,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,11,Friday
-L00398,2026-03-02,S02,P008,2,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,3,10,Monday
+L00398,2026-02-03,S02,P008,2,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,2,6,Tuesday
 L00399,2026-04-20,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,4,17,Monday
 L00400,2026-02-15,S02,P001,2,145000.0,PROMO10,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.1,290000.0,290.0,289710.0,2026,2,7,Sunday
 L00401,2026-03-28,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,13,Saturday
-L00402,2026-07-03,S02,P004,1,390000.0,PROMO15,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.15,390000.0,585.0,389415.0,2026,7,27,Friday
-L00403,2026-08-04,S02,P008,1,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,8,32,Tuesday
+L00402,2026-03-07,S02,P004,1,390000.0,PROMO15,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.15,390000.0,585.0,389415.0,2026,3,10,Saturday
+L00403,2026-04-08,S02,P008,1,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,4,15,Wednesday
 L00404,2026-03-18,S02,P005,2,220000.0,PROMO12,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.12,440000.0,528.0,439472.0,2026,3,12,Wednesday
 L00405,2026-04-27,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,18,Monday
 L00406,2026-02-25,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,9,Wednesday
@@ -408,107 +408,107 @@ L00409,2026-02-26,S02,P007,1,310000.0,NONE,Card,Smartwatch Active,Electronics,Bo
 L00410,2026-03-03,S02,P005,2,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,440000.0,0.0,440000.0,2026,3,10,Tuesday
 L00411,2026-04-17,S02,P004,2,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,4,16,Friday
 L00412,2026-03-27,S02,P009,2,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,3,13,Friday
-L00413,2026-02-04,S02,P013,2,135000.0,PROMO20,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.2,270000.0,540.0,269460.0,2026,2,6,Wednesday
+L00413,2026-04-02,S02,P013,2,135000.0,PROMO20,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.2,270000.0,540.0,269460.0,2026,4,14,Thursday
 L00414,2026-03-14,S02,P001,1,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,3,11,Saturday
 L00415,2026-03-24,S02,P014,2,198000.0,NONE,Transfer,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,396000.0,0.0,396000.0,2026,3,13,Tuesday
-L00416,2026-10-03,S02,P015,2,86000.0,NONE,Cash,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,172000.0,0.0,172000.0,2026,10,40,Saturday
-L00417,2026-10-04,S02,P013,1,135000.0,PROMO20,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.2,135000.0,270.0,134730.0,2026,10,40,Sunday
+L00416,2026-03-10,S02,P015,2,86000.0,NONE,Cash,Digital Scale,Personal Care,Bogotá Centro,Bogotá,Central,0.0,172000.0,0.0,172000.0,2026,3,11,Tuesday
+L00417,2026-04-10,S02,P013,1,135000.0,PROMO20,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.2,135000.0,270.0,134730.0,2026,4,15,Friday
 L00418,2026-02-20,S02,P005,3,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,660000.0,0.0,660000.0,2026,2,8,Friday
-L00419,2026-05-04,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,5,19,Monday
-L00420,2026-07-04,S02,P004,2,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,7,27,Saturday
+L00419,2026-04-05,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,4,14,Sunday
+L00420,2026-04-07,S02,P004,2,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,4,15,Tuesday
 L00421,2026-02-22,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,2,8,Sunday
-L00422,2026-09-02,S02,P013,1,135000.0,NONE,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,9,36,Wednesday
+L00422,2026-02-09,S02,P013,1,135000.0,NONE,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,2,7,Monday
 L00423,2026-02-17,S02,P012,2,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,2,8,Tuesday
-L00424,2026-11-04,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,11,45,Wednesday
+L00424,2026-04-11,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,15,Saturday
 L00425,2026-04-25,S02,P005,2,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,440000.0,0.0,440000.0,2026,4,17,Saturday
-L00426,2026-08-02,S02,P013,1,135000.0,NONE,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,8,31,Sunday
+L00426,2026-02-08,S02,P013,1,135000.0,NONE,Transfer,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,2,6,Sunday
 L00427,2026-02-21,S02,P006,3,165000.0,NONE,Transfer,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,495000.0,0.0,495000.0,2026,2,8,Saturday
 L00428,2026-03-15,S02,P008,2,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,3,11,Sunday
 L00429,2026-04-17,S02,P005,1,220000.0,NONE,Card,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,16,Friday
-L00430,2026-08-04,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,8,32,Tuesday
+L00430,2026-04-08,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,4,15,Wednesday
 L00431,2026-03-20,S02,P005,1,220000.0,PROMO12,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.12,220000.0,264.0,219736.0,2026,3,12,Friday
 L00432,2026-04-22,S02,P006,1,165000.0,NONE,Cash,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,4,17,Wednesday
 L00433,2026-02-17,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,8,Tuesday
 L00434,2026-02-19,S02,P009,1,92000.0,NONE,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,2,8,Thursday
 L00435,2026-04-14,S02,P007,1,310000.0,PROMO10B,Card,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.1,310000.0,310.0,309690.0,2026,4,16,Tuesday
-L00436,2026-05-04,S02,P003,2,175000.0,NONE,Cash,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,5,19,Monday
+L00436,2026-04-05,S02,P003,2,175000.0,NONE,Cash,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,4,14,Sunday
 L00437,2026-02-25,S02,P002,1,285000.0,NONE,Cash,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,2,9,Wednesday
 L00438,2026-04-29,S02,P008,2,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,4,18,Wednesday
 L00439,2026-02-19,S02,P013,1,135000.0,NONE,Card,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,2,8,Thursday
-L00440,2026-10-03,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,10,40,Saturday
-L00441,2026-10-04,S02,P009,2,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,10,40,Sunday
+L00440,2026-03-10,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,3,11,Tuesday
+L00441,2026-04-10,S02,P009,2,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,4,15,Friday
 L00442,2026-03-03,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,10,Tuesday
-L00443,2026-08-04,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,8,32,Tuesday
-L00444,2026-08-03,S02,P002,1,285000.0,NONE,Transfer,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,8,32,Monday
+L00443,2026-04-08,S02,P010,1,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,4,15,Wednesday
+L00444,2026-03-08,S02,P002,1,285000.0,NONE,Transfer,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,285000.0,0.0,285000.0,2026,3,10,Sunday
 L00445,2026-04-27,S02,P009,2,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,4,18,Monday
 L00446,2026-02-16,S02,P002,2,285000.0,NONE,Cash,Coffee Maker Premium,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,570000.0,0.0,570000.0,2026,2,8,Monday
-L00447,2026-03-04,S02,P008,3,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,3,10,Wednesday
-L00448,2026-10-03,S02,P009,1,92000.0,PROMO08,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.08,92000.0,73.60000000000001,91926.4,2026,10,40,Saturday
-L00449,2026-01-02,S02,P001,2,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,290000.0,0.0,290000.0,2026,1,1,Friday
+L00447,2026-04-03,S02,P008,3,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,4,14,Friday
+L00448,2026-03-10,S02,P009,1,92000.0,PROMO08,Transfer,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.08,92000.0,73.60000000000001,91926.4,2026,3,11,Tuesday
+L00449,2026-02-01,S02,P001,2,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,290000.0,0.0,290000.0,2026,2,5,Sunday
 L00450,2026-04-20,S02,P010,2,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,4,17,Monday
 L00451,2026-03-15,S02,P001,3,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,435000.0,0.0,435000.0,2026,3,11,Sunday
-L00452,2026-07-02,S02,P010,1,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,7,27,Thursday
-L00453,2026-08-03,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,8,32,Monday
+L00452,2026-02-07,S02,P010,1,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,2,6,Saturday
+L00453,2026-03-08,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,10,Sunday
 L00454,2026-03-29,S02,P001,1,145000.0,NONE,Cash,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,3,13,Sunday
 L00455,2026-04-23,S02,P005,1,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,17,Thursday
-L00456,2026-10-03,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,10,40,Saturday
+L00456,2026-03-10,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,11,Tuesday
 L00457,2026-04-17,S02,P014,1,198000.0,NONE,Card,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,198000.0,0.0,198000.0,2026,4,16,Friday
-L00458,2026-09-04,S02,P004,2,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,9,36,Friday
+L00458,2026-04-09,S02,P004,2,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,780000.0,0.0,780000.0,2026,4,15,Thursday
 L00459,2026-04-20,S02,P006,1,165000.0,NONE,Card,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,4,17,Monday
-L00460,2026-12-04,S02,P007,1,310000.0,PROMO10B,Card,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.1,310000.0,310.0,309690.0,2026,12,49,Friday
-L00461,2026-10-04,S02,P009,1,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,10,40,Sunday
+L00460,2026-04-12,S02,P007,1,310000.0,PROMO10B,Card,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.1,310000.0,310.0,309690.0,2026,4,15,Sunday
+L00461,2026-04-10,S02,P009,1,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,4,15,Friday
 L00462,2026-02-21,S02,P008,3,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,2,8,Saturday
 L00463,2026-02-24,S02,P008,2,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,156000.0,0.0,156000.0,2026,2,9,Tuesday
-L00464,2026-08-04,S02,P013,1,135000.0,NONE,Card,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,8,32,Tuesday
+L00464,2026-04-08,S02,P013,1,135000.0,NONE,Card,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,135000.0,0.0,135000.0,2026,4,15,Wednesday
 L00465,2026-02-20,S02,P006,2,165000.0,NONE,Card,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,330000.0,0.0,330000.0,2026,2,8,Friday
-L00466,2026-02-04,S02,P012,2,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,2,6,Wednesday
+L00466,2026-04-02,S02,P012,2,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,4,14,Thursday
 L00467,2026-03-31,S02,P008,1,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,14,Tuesday
 L00468,2026-02-21,S02,P004,1,390000.0,NONE,Card,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,2,8,Saturday
 L00469,2026-02-25,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,9,Wednesday
 L00470,2026-04-25,S02,P010,1,115000.0,NONE,Transfer,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,4,17,Saturday
 L00471,2026-02-26,S02,P010,2,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,230000.0,0.0,230000.0,2026,2,9,Thursday
-L00472,2026-10-03,S02,P005,1,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,10,40,Saturday
+L00472,2026-03-10,S02,P005,1,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,3,11,Tuesday
 L00473,2026-04-27,S02,P014,3,198000.0,NONE,Cash,Electric Shaver,Personal Care,Bogotá Centro,Bogotá,Central,0.0,594000.0,0.0,594000.0,2026,4,18,Monday
 L00474,2026-04-13,S02,P007,1,310000.0,NONE,Cash,Smartwatch Active,Electronics,Bogotá Centro,Bogotá,Central,0.0,310000.0,0.0,310000.0,2026,4,16,Monday
 L00475,2026-04-25,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,4,17,Saturday
 L00476,2026-02-17,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,8,Tuesday
 L00477,2026-04-27,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,4,18,Monday
 L00478,2026-02-21,S02,P012,1,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,8,Saturday
-L00479,2026-06-04,S02,P008,3,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,6,23,Thursday
+L00479,2026-04-06,S02,P008,3,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,4,15,Monday
 L00480,2026-03-20,S02,P008,1,78000.0,NONE,Cash,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,3,12,Friday
 L00481,2026-02-15,S02,P004,1,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,2,7,Sunday
 L00482,2026-02-23,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,9,Monday
-L00483,2026-04-02,S02,P006,1,165000.0,NONE,Card,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,4,14,Thursday
-L00484,2026-08-04,S02,P008,3,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,8,32,Tuesday
+L00483,2026-02-04,S02,P006,1,165000.0,NONE,Card,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,2,6,Wednesday
+L00484,2026-04-08,S02,P008,3,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,234000.0,0.0,234000.0,2026,4,15,Wednesday
 L00485,2026-03-22,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,3,12,Sunday
 L00486,2026-03-17,S02,P001,1,145000.0,NONE,Card,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,145000.0,0.0,145000.0,2026,3,12,Tuesday
 L00487,2026-04-04,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,4,14,Saturday
 L00488,2026-02-18,S02,P010,1,115000.0,NONE,Cash,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,115000.0,0.0,115000.0,2026,2,8,Wednesday
-L00489,2026-08-03,S02,P003,3,175000.0,NONE,Cash,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,525000.0,0.0,525000.0,2026,8,32,Monday
-L00490,2026-08-04,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,8,32,Tuesday
+L00489,2026-03-08,S02,P003,3,175000.0,NONE,Cash,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,525000.0,0.0,525000.0,2026,3,10,Sunday
+L00490,2026-04-08,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,4,15,Wednesday
 L00491,2026-03-20,S02,P003,2,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,3,12,Friday
-L00492,2026-03-04,S02,P013,2,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,270000.0,0.0,270000.0,2026,3,10,Wednesday
+L00492,2026-04-03,S02,P013,2,135000.0,NONE,Cash,Hair Dryer,Personal Care,Bogotá Centro,Bogotá,Central,0.0,270000.0,0.0,270000.0,2026,4,14,Friday
 L00493,2026-03-22,S02,P012,3,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,105000.0,0.0,105000.0,2026,3,12,Sunday
 L00494,2026-02-14,S02,P012,1,35000.0,NONE,Card,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,7,Saturday
-L00495,2026-11-02,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,11,45,Monday
+L00495,2026-02-11,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,2,7,Wednesday
 L00496,2026-04-27,S02,P003,2,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,350000.0,0.0,350000.0,2026,4,18,Monday
 L00497,2026-02-22,S02,P008,1,78000.0,NONE,Transfer,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,2,8,Sunday
 L00498,2026-02-17,S02,P003,1,175000.0,NONE,Card,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,8,Tuesday
-L00499,2026-11-02,S02,P005,1,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,11,45,Monday
+L00499,2026-02-11,S02,P005,1,220000.0,NONE,Cash,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,2,7,Wednesday
 L00500,2026-03-25,S02,P006,1,165000.0,NONE,Cash,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,3,13,Wednesday
 L00501,2026-04-14,S02,P005,1,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,4,16,Tuesday
 L00502,2026-03-24,S02,P011,2,138000.0,NONE,Transfer,Keyboard Compact,Home & Office,Bogotá Centro,Bogotá,Central,0.0,276000.0,0.0,276000.0,2026,3,13,Tuesday
-L00503,2026-08-02,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,8,31,Sunday
+L00503,2026-02-08,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,2,6,Sunday
 L00504,2026-03-14,S02,P005,1,220000.0,NONE,Transfer,Wireless Headphones,Electronics,Bogotá Centro,Bogotá,Central,0.0,220000.0,0.0,220000.0,2026,3,11,Saturday
-L00505,2026-10-03,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,10,40,Saturday
+L00505,2026-03-10,S02,P009,2,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,184000.0,0.0,184000.0,2026,3,11,Tuesday
 L00506,2026-03-29,S02,P012,1,35000.0,NONE,Transfer,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,35000.0,0.0,35000.0,2026,3,13,Sunday
 L00507,2026-04-13,S02,P004,1,390000.0,NONE,Transfer,Air Fryer 4L,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,390000.0,0.0,390000.0,2026,4,16,Monday
-L00508,2026-01-02,S02,P012,2,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,1,1,Friday
-L00509,2026-12-04,S02,P010,3,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,345000.0,0.0,345000.0,2026,12,49,Friday
+L00508,2026-02-01,S02,P012,2,35000.0,NONE,Cash,Notebook Pack,Home & Office,Bogotá Centro,Bogotá,Central,0.0,70000.0,0.0,70000.0,2026,2,5,Sunday
+L00509,2026-04-12,S02,P010,3,115000.0,NONE,Card,Ergonomic Mouse,Home & Office,Bogotá Centro,Bogotá,Central,0.0,345000.0,0.0,345000.0,2026,4,15,Sunday
 L00510,2026-02-27,S02,P008,1,78000.0,NONE,Card,USB-C Charger,Electronics,Bogotá Centro,Bogotá,Central,0.0,78000.0,0.0,78000.0,2026,2,9,Friday
-L00511,2026-01-03,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,1,1,Saturday
+L00511,2026-03-01,S02,P009,1,92000.0,NONE,Card,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,3,9,Sunday
 L00512,2026-02-24,S02,P009,1,92000.0,PROMO08,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.08,92000.0,73.60000000000001,91926.4,2026,2,9,Tuesday
-L00513,2026-09-02,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,9,36,Wednesday
+L00513,2026-02-09,S02,P003,1,175000.0,NONE,Transfer,Blender 500W,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,175000.0,0.0,175000.0,2026,2,7,Monday
 L00514,2026-02-16,S02,P001,3,145000.0,NONE,Transfer,Coffee Maker Basic,Small Appliances,Bogotá Centro,Bogotá,Central,0.0,435000.0,0.0,435000.0,2026,2,8,Monday
 L00515,2026-04-24,S02,P006,1,165000.0,NONE,Card,Bluetooth Speaker,Electronics,Bogotá Centro,Bogotá,Central,0.0,165000.0,0.0,165000.0,2026,4,17,Friday
 L00516,2026-02-15,S02,P009,1,92000.0,NONE,Cash,Desk Lamp LED,Home & Office,Bogotá Centro,Bogotá,Central,0.0,92000.0,0.0,92000.0,2026,2,7,Sunday
