@@ -71,14 +71,14 @@ LAB1B_ETL/
 └── requirements.txt
 ```
 
-## 4. Tecnologías utilizadas 🛠️
-
-- **Python** — Lenguaje principal del proyecto.
-- **Pandas** — Manipulación, transformación y análisis de datos.
-- **NumPy** — Operaciones numéricas y manejo de estructuras de datos.
-- **lxml** — Procesamiento y extracción de información desde archivos XML/HTML.
-- **SQL** — Consulta y análisis de datos almacenados en la base de datos.
-- **Git & GitHub** — Control de versiones y gestión del repositorio.
+## 4. Technologies Used 🛠️
+- **Python** — Main programming language used in the project.
+- **Pandas** — Data manipulation, transformation, and analysis.
+- **NumPy** — Numerical operations and data structure handling.
+- **lxml** — XML/HTML data processing and extraction.
+- **SQL** — Data querying and analysis within the database.
+- **SQLite** — Relational database used for storing the processed analytical data.
+- **Git & GitHub** — Version control and repository management.
 
 
 ## 5. ETL Pipeline Implementation ⚙️
@@ -157,7 +157,7 @@ It includes four main requirements:
 
 The results are stored as separate tables in the SQLite database.
 
-## Execution Instructions 📖
+## 6. Execution Instructions 📖
 
 ### 1. Clone the repository
 
@@ -186,7 +186,7 @@ To activate you should use:
 ### 3. Install Dependencies
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 4. **Execute Orquestator**:
@@ -196,11 +196,11 @@ Run the main entry point from the project root:
 python src/main.py
 ```
 
-### Recommendations 🖊️
+## 7. Recommendations 🖊️
 
 To analize and visualize the database generated install the extension called `db viewer` if you're in VS Code.
 
-## Example/Screenshots of analytical results 📸 
+## 8. Example/Screenshots of analytical results 📸 
 
 ### Campaign Effectiveness
 ![Campaign-Effectiveness](images/campaign_effectiveness.jpeg)
