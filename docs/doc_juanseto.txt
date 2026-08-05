@@ -1,0 +1,347 @@
+FACULTY OF ENGINEERING AND BASIC SCIENCES
+ACADEMIC PROGRAM: DATA ENGINEERING AND ARTIFICIAL INTELLIGENCE COURSE: ETL (G01)
+
+Lab 1A – Business Requirements Analysis for a Retail Analytics Platform
+
+Group Members:
+
+Juan Sebastián Torres Pantoja - 1107847424,manager
+Sebastian Manrique Mejia- 1109663736, owner
+Michael Macowli Cardona Rodriguez - 1006436244 Developer
+David Hernandez Paz - 1110293622, Co-owner
+
+	•	Scenario
+
+A retail company needs a sales dashboard to help managers make strategic decisions. As the development team, your task is to work with the client to fully understand their needs.
+
+Client Meeting Transcript – Retail Sales Dashboard Project
+
+"So, here’s what we’re thinking… We've got all this sales data coming in every day from our stores — receipts, product sales, inventory levels — but right now, our managers have to dig through spreadsheets to see what’s going on. It’s just not efficient. We’d like something visual, maybe a dashboard, so that when a regional manager logs in, they can see right away how their stores are performing.
+
+We want to be able to see total sales — obviously — but also, which product categories are doing well and which ones are struggling. For example, if coffee makers are suddenly not selling as much, we’d want to know ASAP so we can run a promo. It’d be great if we could filter by region or even by store. Some managers also want to see trends over time, like daily or weekly, so they can compare to last month or last year.
+Another thing — our marketing team sometimes needs to see which stores are hitting their targets and which aren’t, so they can adjust campaigns. They might want to download a report. 
+
+Oh, and some of our managers aren’t super tech-savvy, so this needs to be pretty easy to use — no complex menus.
+Data-wise… well, most of it is already in our sales database, but I think some promotions data comes from another system. We’ll have to figure out how to combine those. We’d want the dashboard to be updated daily — live would be amazing, but maybe that’s too much? We’re not sure how complicated that would be. Also, mobile access would be a plus — some managers travel a lot.
+
+I guess in short: show us the important sales numbers in a way that’s clear, let us drill down into details if needed, and make sure it works for people with different needs. But yeah, I’m sure I’m forgetting something — you’ll probably have more questions for me.”
+	•	Introduction
+
+	Understanding business requirements is the first step in any successful Data Engineering project. Before designing databases, developing ETL pipelines, or creating analytical dashboards, it is essential to identify the organization's objectives, stakeholders, and information needs. 
+
+This report analyzes the business scenario presented for a retail analytics platform, identifying the company's main challenges, business objectives, analytical questions, functional and non-functional requirements, data requirements, user stories, key performance indicators (KPIs), and the relationship between business needs and data sources. 
+
+The purpose of this analysis is to establish a solid foundation for the design and implementation of an ETL solution in the next stage of the project. 
+
+
+	•	Activities 
+		Engineering Mindset - Clarification:
+
+	•	We do not think about databases, dashboards, or ETL pipelines yet.
+	•	Our goal is to understand the business problem before proposing any technical solution.
+
+Activity 1 – Understanding the Business Problem
+
+Business objectives describe what the organization wants to achieve, not the technical solution that will be implemented.
+
+Before proposing any technical solution, answer the following questions:
+
+	•	What business problem is the company trying to solve?
+
+	R// The company struggles to quickly analyze its sales performance because the information is scattered across spreadsheets and various systems. This makes it difficult for managers to make timely decisions regarding sales, promotions, and inventory.
+
+	•	Why is this problem important for the organization?
+
+	R// This problem affects the company's ability to react quickly to changes in sales behavior. Without consolidated information, managers may be slow to identify underperforming products, stores that are not meeting their goals, or sales trends, which can lead to missed business opportunities and reduce the efficiency of business decisions.
+
+	•	Who are the main stakeholders that will benefit from the proposed analytical solution?
+
+	R// The text states that the beneficiaries will be regional managers, who will be able to evaluate their performance by region and compare trends on a daily, weekly, and year-over-year basis. Store managers will also benefit, requiring quick access via mobile devices and the marketing team to see if goals are being met in each store, adjust campaigns in real time, and download analyses or reports.
+
+	•	What decisions could managers make using the requested information?
+
+	R// Managers could make several decisions around, like identifying underperforming products and decide when promotional campaigns are needed to improve sales. They could also compare the performance of stores to recognize those that require additional support or operational changes 
+
+	•	What information is missing from the client's description? What additional questions would you ask during the meeting?
+
+	R// How do the goals vary across stores? With the data they have, how far do they want to go in comparing them to current figures? Do they need live updates or daily updates? Can all managers see the stores in other regions or only their own?
+
+
+Activity 2 – Business Objectives
+
+
+Business Objective
+Why is it Important?
+Identify the best- and worst-performing product categories.
+Helps plan promotions and optimize inventory.
+Optimize visibility of sales performance across stores and regions.
+ It allows managers to quickly identify performance differences and make informed decisions based on reliable sales data. 
+Provide managers with a clear and centralized view of sales performance 
+It enables managers to quickly understand how stores are performing without manually reviewing multiple spreadsheets. 
+Improve the accessibility and usability of business information. 
+It ensures that managers with different technical skills can easily access and interpret key business information, including from mobile devices.
+
+Activity 3 – Analytical Questions
+
+Identify the questions that the organization expects the analytical system to answer.
+
+Business Question
+Information Required
+Which product categories are selling less than expected?
+Sales volume by category over time.
+Which stores are meeting their sales targets and which are not?
+Actual sales compared to store targets.
+How do sales compare to those of the previous month or year?
+Sales transaction history by date.
+Which stores generate the most revenue within each region?
+Total revenue filtered by region and store.
+
+
+
+
+
+
+
+
+
+
+Business Question
+Information Required
+Which products generate the highest revenue?
+Product sales by category
+Which stores perform better?
+Sales by store
+Which customers purchase most frequently?
+Customer purchase history
+
+Activity 4 – Requirements Identification
+
+	•	Functional Requirements
+List the functional requirements of the analytical platform. 
+	•	Display monthly sales.
+	•	Display top-selling products.
+	•	Display sales by city.
+	•	Display total sales. 
+	•	Display sales by product category. 
+	•	Identify low-performing products. 
+	•	Compare sales with previous months.
+
+
+	•	Non-Functional Requirements
+Identify at least five non-functional requirements. Consider aspects such as:
+	•	Performance: The dashboard should load all information in less than 3 seconds.
+	•	Security: Only authorized users should be able to access the dashboard and its reports.
+	•	Usability: The dashboard should provide a simple and intuitive interface for non-technical users.
+	•	Mobile Accessibility: The dashboard should be fully accessible from mobile devices, allowing managers to review sales information while traveling.
+	•	Data Freshness: The dashboard should automatically update its data every day to ensure managers always work with the most recent sales information.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	•	Data Requirements
+
+
+Information Needed
+Data Required
+Possible Source
+Why	is	it Needed?
+Monthly sales
+Sales transactions
+Point of Sale System
+To monitor sales performance over time and identify business trends. 
+Product performance
+Product catalog + sales
+Inventory Database
+To identify best-selling and underperforming products for better business decisions. 
+Customer behavior
+Customer information
+CRM
+To understand purchasing patterns and support marketing and sales strategies. 
+Sales trends over time 
+Historical sales data 
+POS System 
+To analyze daily, weekly, monthly, and yearly trends. 
+
+User access information 
+User accounts and roles 
+Authentication/User Management System 
+To provide secure and role-based access to the dashboard. 
+
+	
+	Possible Sources - Graphic/Images Examples (as a reference):
+
+
+
+
+
+
+
+
+
+
+
+
+Reflection
+
+Answer the following question:
+
+	•	Do all the required data come from a single source? Explain.
+
+	R// No. The data comes from different systems; for example, transactions will come from their POS systems and must be able to be exported in a specific format, promotions will be in some format that the marketing people have in separate files, and some formats where they have the business goals or budgets.
+
+	•	What challenge does the organization face if the required information is distributed across multiple systems?
+
+	R// There may be problems with multiple file formats and this can make the data inconsistent since there is no standard that allows them to be worked with in the same way.
+
+	•	Can a dashboard answer these questions without integrating multiple data sources? Explain.
+
+	R// No. The dashboard is what allows us to see all the data information in a given way; to get there, many things must be done beforehand, such as cleaning, transforming, joining, etc., all the data through a process like ETL.
+
+Activity 5 – User Stories
+
+Write at least five user stories using the following format. 
+1.
+As a Regional Manager,
+I want to view sales performance by region and store,
+So that I can identify high-performing and underperforming locations.
+
+2.
+As a Marketing Manager,
+I want to identify products with declining sales,
+So that I can create promotional campaigns to increase their sales.
+
+
+3.
+As a Store Manager,
+I want to monitor daily and weekly sales trends,
+So that I can evaluate my store's performance over time.
+
+4.
+As a Sales Manager,
+I want to compare current sales with previous months and years,
+So that I can measure business growth and identify sales trends.
+
+5.
+As a Company Executive,
+I want to view the company's key sales indicators in one place,
+So that I can make informed strategic decisions.
+
+Additionally, complete the following table.
+
+User
+Decision to Make
+Information Needed
+Regional Manager 
+Determine which stores require improvement
+improvement
+Sales performance by city and store
+Marketing Manager 
+Decide which products should receive promotions
+Product sales by category and promotion data
+Store Manager 
+Evaluate the store's performance
+Daily and weekly sales trends
+Sales Manager 
+Assess sales growth
+Historical sales data and comparison reports
+Company Executive 
+Make strategic business decisions
+KPIs such as total sales, sales by city, and top-selling products
+
+Activity 6 – KPIs
+
+Based on the business objectives, identify the Key Performance Indicators (KPIs) that the analytical platform should provide
+
+
+Business Objective
+KPI
+Identify the best- and worst-performing product categories. 
+Sales by Category
+Optimize visibility of sales performance across stores and regions. 
+Sales by Store and Region 
+Provide managers with a clear and centralized view of sales performance. 
+Total Revenue 
+Improve the accessibility and usability of business information. 
+Dashboard Usage Rate (or User Satisfaction Score) 
+
+Following questions:
+
+	•	Which KPIs require data from multiple systems?
+
+	R// Sales by Category requires data from both the sales database and the inventory/product 	catalog. In addition, Dashboard Usage Rate may require data from the authentication or 		user management system together with dashboard activity logs. 
+
+
+	•	Which KPI would be the most difficult to calculate? Why?
+
+	R// Sales by Category would be the most difficult KPI to calculate because it requires 		integrating sales transactions with product catalog information from different systems. The 		data must be consistent and accurately matched before generating reliable analytical results.
+
+
+Activity 7 – Dashboard Wireframe
+
+Prompt used:
+
+"Act as a front-end developer and create an interactive sales dashboard for me using HTML, CSS, and JS with Chart.js. The design must be in Spanish, have a modern 'Dark Mode' style, and be compact enough to be viewed on a single screen without scrolling. The dashboard must include: 1. Top filters: Region, Store, and Date Range (for usability and an intuitive interface). 2. KPI cards: Total Revenue, Target Achievement (%), Top-Performing Category, and Underperforming Category. 3. Charts: A line chart comparing sales trends over time (current vs. previous) and a horizontal bar chart showing sales by category. 4. Detail table: Performance by store showing Total Sales, Target, and Achievement Status. Ensure that each element meets the functional needs for visualization and decision-making."
+
+
+
+
+
+
+
+Top Filters: Allow you to segment data by Region, Store, and Period.
+
+KPI Cards: Display real-time Total Revenue, Goal Achievement Percentage, and specific category alerts.
+
+Trend Chart: Shows the evolution over time compared to the previous period.
+
+Sales Chart by Category: Visually and immediately identifies underperforming categories, e.g., Coffee Makers, for quick marketing decisions.
+
+Performance Table: Breaks down goal achievement by location and region.
+
+	•	Lab 1B – Requirements made in Lab 1A.
+
+Complete the following table.
+
+Business Requirement
+Data Source
+Transformation Needed
+Expected Output
+Monitor total revenue
+POS / Transactional System
+Clean null values, check dates, separate by dates and stores
+Aggregate table of daily sales
+Identify sales performance by category
+POS System + Inventory Database / Catalog
+Perform a JOIN between sales, event transactions, and catalogs using a primary key
+A performance dataset by category
+Evaluate goal achievement by store and cities
+Sistema POS + Sistema ERP / Presupuestos (Metas)
+Aggregate revenue by category, each store and date, calculate the percentage of compliance.
+Table of Compliance Facts
+Monitor the impact of promotions
+Sistema POS + Sistema de Promociones (Marketing) 
+JOIN by products on the required dates from start to finish
+Campaign effectiveness tables
+
+
+Question
+“Do you think building a dashboard is the first step in a Data Engineering project? Explain your answer.”
+
+R// No, building a dashboard is not the first step in a Data Engineering project. A dashboard represents the final presentation layer of a data product, but before any data can be visualized, a solid data foundation must be built.
+The true first steps in a Data Engineering project involve understanding the business requirements, identifying data sources, and designing the architecture. From there, in our case, as data engineers we must build the ETL/ELT pipelines to extract, clean, transform, and model raw data into a reliable, structured format (like a data warehouse schema). However, for any other project (even if it's not data-based), the dashboard isn't the first thing.
+Besides, attempting to build a dashboard first leads to the 'garbage in, garbage out' problem—visualizing incomplete, unvalidated, or unstructured data. Dashboards rely entirely on the quality, security, and performance of the underlying data infrastructure, making pipeline engineering and data modeling the actual starting point.
