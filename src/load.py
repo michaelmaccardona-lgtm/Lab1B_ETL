@@ -1,19 +1,8 @@
 """
-Módulo: load.py
-
-Descripción General:
-Este módulo se encarga de la fase de Carga (Load) y persistencia del pipeline ETL. 
-Su rol principal es tomar los datos ya limpios, enriquecidos y estructurados, para guardarlos de forma 
-permanente y segura.
-
-Responsabilidades Clave:
-1. Exportar el DataFrame analítico final (con las ventas netas y brutas calculadas) a un archivo CSV.
-2. Cargar esos mismos datos en una base de datos de SQLite (retail_analytics.db) para que puedan ser 
-   consultados ágilmente con comandos SQL.
-3. Cargar las tablas maestras (especialmente las metas mensuales) a la misma base de datos, para 
-   poder cruzar las ventas reales con lo que la gerencia esperaba vender.
-4. Asegurar Idempotencia: Usa `if_exists='replace'` para garantizar que si se corre el script varias veces, 
-   no se inserten los mismos datos dos veces, sino que la tabla se regenere limpiamente.
+En esta parte guardamos todo el trabajo que ya hicimos. 
+Tomamos la tabla final que salió de la transformación y la exportamos a un CSV nuevecito.
+Pero lo más importante es que también guardamos los datos en una base de datos de SQLite (retail_analytics.db) para poder hacerle consultas SQL más adelante.
+Usamos la opción de 'replace' para que si corremos el código varias veces, no se nos dupliquen los datos (a esto el profe le llama idempotencia).
 """
 
 import sqlite3

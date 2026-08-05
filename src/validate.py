@@ -1,16 +1,10 @@
 """
-Módulo: validate.py
-
-Descripción General:
-Este módulo se encarga de la fase de Validación (Validate) del pipeline ETL. 
-Actúa como la última compuerta de calidad (Quality Gate) antes de que los datos sean cargados a la base de datos.
-
-Responsabilidades Clave:
-1. Asegurar que las reglas de negocio críticas se hayan cumplido tras la transformación.
-2. Comprobar la unicidad de las llaves primarias (ej. sale_line_id).
-3. Verificar que no hayan quedado campos nulos tras los cruces (JOINs) con las tablas maestras.
-4. Asegurar que las métricas financieras (ej. ventas netas) tengan sentido matemático (no negativas).
-5. Lanzar un error crítico (AssertionError) que detenga el pipeline si los datos están corruptos.
+Este archivo funciona como una alarma de seguridad antes de guardar los datos.
+Revisa un par de cosas básicas para asegurarnos de que la limpieza quedó bien:
+- Que no haya IDs de ventas repetidos.
+- Que no se nos haya colado ninguna venta neta negativa.
+- Que al cruzar las tablas no hayan quedado productos o tiendas sin nombre (nulos).
+Si encuentra algún error, detiene el programa de una para no guardar basura en la base de datos.
 """
 
 import pandas as pd

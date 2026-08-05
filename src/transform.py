@@ -1,18 +1,8 @@
 """
-Módulo: transform.py
-
-Descripción General:
-Este módulo es el "Cerebro" técnico del pipeline ETL. Contiene toda la lógica de perfilamiento, limpieza, 
-armonización y reglas de negocio necesarias para transformar los datos crudos en información lista para análisis.
-
-Responsabilidades Clave:
-1. Perfilamiento (Profile): Audita los datos crudos para identificar qué tan sucios vienen (nulos, duplicados, negativos).
-2. Limpieza (Clean): Aplica filtros (Quality Gates) como eliminar espacios en blanco, dar formato estándar a fechas 
-   y rechazar filas con precios o cantidades negativas.
-3. Transformación (Transform): Cruza (JOIN) las transacciones limpias con las tablas maestras de productos, 
-   tiendas y promociones.
-4. Lógica de Negocio: Calcula las ventas brutas, los descuentos aplicados y las ventas netas. También 
-   desglosa fechas en año, mes, semana y día para hacer reportes en el tiempo.
+Este es el archivo más pesado del proyecto porque aquí hacemos toda la limpieza y los cálculos.
+Primero revisamos qué tan sucios vienen los datos. Luego aplicamos filtros, como quitar los espacios en blanco sobrantes y eliminar las filas que tengan precios o cantidades negativas (porque no tienen sentido en ventas).
+Después, cruzamos (hacemos JOIN) las ventas con la info de los productos, tiendas y promociones.
+Por último, ya con todo cruzado, calculamos las ventas brutas, aplicamos los descuentos y sacamos el total de las ventas netas. También sacamos el año, mes y día para poder hacer gráficas después.
 """
 
 import pandas as pd

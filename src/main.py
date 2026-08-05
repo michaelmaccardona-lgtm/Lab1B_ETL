@@ -1,16 +1,13 @@
 """
-Módulo: main.py
+Este es el archivo principal que arranca todo el programa. 
+Básicamente es un script que llama a los demás archivos en orden:
+1. Extrae los datos (extract.py)
+2. Los limpia y cruza (transform.py)
+3. Revisa que no la hayamos embarrado con los cálculos (validate.py)
+4. Guarda los resultados (load.py)
+5. Corre las consultas en SQL para ver los resultados finales (queries.py)
 
-Descripción General:
-Este es el "Orquestador Principal" (Entry Point) del proyecto. Su única responsabilidad es ejecutar 
-el pipeline ETL de principio a fin, llamando a cada módulo en el orden técnico correcto.
-
-Flujo de Ejecución (Pipeline):
-1. Importa las rutas relativas para ubicar dinámicamente las carpetas 'data/' y 'database/'.
-2. Llama a `extract.py` para leer todos los datos en crudo (CSV, JSON, XML).
-3. Llama a `transform.py` para evaluar la calidad, limpiar nulos/duplicados/negativos y calcular los ingresos netos.
-4. Llama a `load.py` para guardar el resultado de manera segura (y repetible) en un nuevo CSV y en SQLite.
-5. Finalmente, llama a `queries.py` para cruzar los datos y generar los reportes gerenciales en consola.
+Para correr el proyecto solo tienes que ejecutar este archivo en la consola.
 """
 
 from pathlib import Path

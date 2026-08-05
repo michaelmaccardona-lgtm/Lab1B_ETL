@@ -1,9 +1,7 @@
 """
-Módulo: create_views.py
-
-Descripción General:
-Este script se conecta a la base de datos `retail_analytics.db` y crea VISTAS SQL (VIEWS) 
-apuntando a las tablas de resultados previamente generadas por el pipeline.
+Este script es súper cortico pero útil. Se conecta a la base de datos de SQLite y crea Vistas (Views) de SQL
+apuntando a las tablas de resultados que generamos en las consultas.
+Esto lo hicimos para cumplir con el requisito de que los reportes se puedan consultar fácilmente desde cualquier programa de bases de datos.
 """
 
 import sqlite3

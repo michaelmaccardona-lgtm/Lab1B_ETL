@@ -1,10 +1,7 @@
 """
-Módulo: visualize.py
-
-Descripción General:
-Genera gráficas altamente detalladas a partir de la base de datos `retail_analytics.db` 
-para visualizar las respuestas a los requerimientos del negocio.
-Las imágenes se guardan en la carpeta `images/` con etiquetas de datos precisas.
+Acá leemos la base de datos de SQLite para generar las gráficas de la sustentación usando matplotlib y seaborn.
+Hacemos 4 gráficas clave: la tendencia de ventas por tienda, el top de categorías, quién cumplió las metas y la efectividad de las promociones.
+Las gráficas se guardan solitas en la carpeta 'images/' y les puse títulos y números encima de las barras para que se entiendan fácil en las diapositivas.
 """
 
 import sqlite3

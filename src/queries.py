@@ -1,19 +1,11 @@
 """
-Módulo: queries.py
-
-Descripción General:
-Este módulo ejecuta la capa analítica final (Activity 11 - Lab 1B). 
-Conecta directamente a la base de datos SQLite previamente cargada para resolver las grandes 
-preguntas de negocio formuladas en el Lab 1A usando consultas SQL complejas.
-
-Responsabilidades Clave:
-1. Conectarse de forma segura a `retail_analytics.db`.
-2. Requerimiento 1: Evaluar ventas globales agrupándolas por Día y Mes.
-3. Requerimiento 2: Sacar el ranking (RANK) y la participación de los productos y sus categorías.
-4. Requerimiento 3: Cruzar las ventas netas reales vs. metas esperadas mediante un bloque `CASE WHEN`.
-5. Requerimiento 4: Medir el ROI de las campañas promocionales filtrando (BETWEEN) por sus fechas.
-6. Guarda los resultados de estas consultas analíticas de vuelta en la base de datos como 
-   nuevas tablas (ej. 'REQ1_daily_sales_aggregate') para que la gerencia o un Dashboard las consuma fácil.
+Aquí es donde respondemos las preguntas del negocio (el Lab 1A).
+Nos conectamos a la base de datos de SQLite que creamos en el paso anterior y hacemos consultas en SQL para sacar:
+- Cuánto se vendió cada mes y día.
+- Cuáles fueron los productos y categorías más vendidos.
+- Si las tiendas cumplieron o no con las metas del mes (cruzando ventas reales vs presupuesto).
+- Si las campañas de descuento funcionaron y dejaron buen ROI.
+Todo esto lo guardamos en tablas nuevas dentro de la misma base de datos para que sea fácil leerlas o graficarlas.
 """
 
 import sqlite3

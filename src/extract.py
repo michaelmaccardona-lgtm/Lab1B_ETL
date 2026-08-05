@@ -1,17 +1,7 @@
 """
-Módulo: extract.py
-
-Descripción General:
-Este módulo es el responsable de la fase de Extracción (Extract) del pipeline ETL. 
-Su objetivo principal es conectarse a múltiples fuentes de datos que vienen en formatos heterogéneos 
-(CSV para Cali, JSON para Bogotá y XML para Medellín) e ingerir los datos en crudo (raw).
-
-Responsabilidades Clave:
-1. Leer los archivos transaccionales sin aplicar reglas de negocio o cálculos financieros.
-2. Leer las tablas maestras de referencia (productos, tiendas, promociones, metas).
-3. Renombrar las columnas de cada fuente (que pueden venir en distintos idiomas o formatos) 
-   para ajustarlas a un "Esquema Común" (COMMON_TRANSACTION_COLUMNS).
-4. Retornar un único DataFrame unificado que está listo para la siguiente fase de perfilamiento y limpieza.
+Acá hacemos la primera parte del ETL: la extracción.
+Básicamente nos conectamos a los archivos que mandó cada ciudad (Cali mandó un CSV, Bogotá un JSON y Medellín un XML).
+Lo único que hace este archivo es leer los datos en bruto y cambiarles el nombre a las columnas para que todas queden iguales y las podamos juntar en una sola tabla gigante de Pandas. Todavía no hacemos cálculos matemáticos ni borramos datos malos, eso pasa en el siguiente paso.
 """
 
 import pandas as pd
