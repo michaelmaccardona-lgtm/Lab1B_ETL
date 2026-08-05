@@ -15,7 +15,7 @@ Below you will find explanations of the requirements, design, and implementation
 
 The ETL pipeline is designed as a modular system where each block handles a specific stage of the data lifecycle. Below is the block diagram and the corresponding technical responsibilities for each stage:
 
-![Pipeline Diagram](Images/pipeline_diagram.png)
+![Pipeline Diagram](images/pipeline_diagram.png)
 
 ### Pipeline Block Responsibilities
 
