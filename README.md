@@ -2,23 +2,20 @@
 
 Below you will find explanations of the requirements, design, and implementation, along with step-by-step instructions for executing everything.
 
-## 1. Selected Business Requirements & Traceability
+## 1. Selected Business Requirements & Traceability 📋
 
 | # | Business Requirement | Required Data | Pipeline Block | Expected Output |
 |---|---|---|---|---|
-| 1 | Monitor total revenue and sales by region/store | sale_date, store_id, quantity, unit_price, stores.csv | Transform / Integrate | Gross and net sales aggregated by region and branch |
+| 1 | Monitor total revenue | sale_date, store_id, quantity, unit_price, stores.csv | Transform / Integrate | Gross and net sales aggregated by region and branch |
 | 2 | Identify sales performance by product category | product_id, quantity, unit_price, products.csv | Transform / Integrate | Total revenue and units sold grouped by category |
 | 3 | Evaluate monthly sales target achievement per store | store_id, sale_date, net_sales, monthly_targets.csv | Transform / Integrate | Target compliance percentage per branch/month |
-| 4 | Compare temporal sales trends (daily/weekly/monthly) | Sale transactions (sale_date, net_sales) | Transform / Integrate | Aggregated metrics by month, week, and day_name |
-| 5 | Analyze promotion usage effectiveness | promotion_code, sale_date, promotions.csv, gross_sales | Transform / Integrate | Discounts applied and net sales under campaigns |
-| 6 | Unify and standardize heterog
+| 4 | Monitor the impact of promotions | promotion_code, sale_date, promotions.csv, gross_sales | Transform / Integrate | Discounts applied and net sales under campaigns |
 
-
-## 2. System Architecture & Pipeline Design
+## 2. System Architecture & Pipeline Design 📐
 
 The ETL pipeline is designed as a modular system where each block handles a specific stage of the data lifecycle. Below is the block diagram and the corresponding technical responsibilities for each stage:
 
-![Pipeline Diagram](docs/pipeline_diagram.png)
+![Pipeline Diagram](Images/pipeline_diagram.png)
 
 ### Pipeline Block Responsibilities
 
@@ -32,8 +29,59 @@ The ETL pipeline is designed as a modular system where each block handles a spec
 | **Load** | Validated analytical DataFrame | Export the clean integrated dataset to `data/processed/integrated_sales.csv` and insert all records into the `sales_analytics` table inside the SQLite database (`retail_analytics.db`). | Processed CSV file and populated SQLite database table | Database lock, file permission errors, or SQL schema creation failures |
 | **Query** | SQLite database (`database/retail_analytics.db`) | Execute structured analytical SQL queries to answer the business questions and KPIs defined in Lab 1A. | Tabular query results displayed in console verifying requirement satisfaction | SQL syntax errors or table/column name mismatches |
 
+## 3.	Project structure. 🗂️
+```text
+LAB1B_ETL/
+│
+├── data/
+│   ├── processed/
+│   │   └── integrated_sales.csv
+│   │
+│   └── raw/
+│       ├── monthly_targets.csv
+│       ├── products.csv
+│       ├── promotions.csv
+│       ├── sales_bogota.json
+│       ├── sales_cali.csv
+│       ├── sales_medellin.xml
+│       └── stores.csv
+│
+├── database/
+│   └── retail_analytics.db
+│
+├── docs/
+│   ├── Documentation with Analysis and Solution for the Retail Company.docx
+│   └── ETL-G1_2026-2_U1_Lab-1B.docx
+│
+├── images/
+│   ├── campaign_effectiveness.jpeg
+│   ├── category_performance.jpeg
+│   ├── daily_sales_aggregate.jpeg
+│   └── pipeline_diagram.png
+│
+├── src/
+│   ├── extract.py
+│   ├── load.py
+│   ├── main.py
+│   ├── queries.py
+│   └── transform.py
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
 
-## 3. ETL Pipeline Implementation
+## 4. Tecnologías utilizadas 🛠️
+
+- **Python** — Lenguaje principal del proyecto.
+- **Pandas** — Manipulación, transformación y análisis de datos.
+- **NumPy** — Operaciones numéricas y manejo de estructuras de datos.
+- **lxml** — Procesamiento y extracción de información desde archivos XML/HTML.
+- **SQL** — Consulta y análisis de datos almacenados en la base de datos.
+- **Git & GitHub** — Control de versiones y gestión del repositorio.
+
+
+## 5. ETL Pipeline Implementation ⚙️
 
 ### Extraction Phase (`src/extract.py`)
 The extraction module ingests data from three heterogeneous transaction sources and four master reference tables without applying business logic or transformations:
@@ -44,8 +92,6 @@ The extraction module ingests data from three heterogeneous transaction sources 
 
 All transaction sources are reindexed to conform to a **common schema**:
 `sale_line_id`, `sale_date`, `store_id`, `product_id`, `quantity`, `unit_price`, `promotion_code`, and `payment_method`.
-
-
 
 
 ### Data Profiling Findings & Cleaning Decisions (`Activity 4 & 5`)
@@ -62,7 +108,7 @@ Upon extracting raw transactions from Cali (CSV), Bogotá (JSON), and Medellín 
 | **Text Whitespaces & Casing** | Trailing whitespaces and mixed casing in `store_id`, `product_id`, and `payment_method`. | Strip leading/trailing whitespaces and convert text to uppercase/standardized casing. |
 
 
-### 6.  Cleaning & Harmonization Phase (`src/transform.py`)
+### Cleaning & Harmonization Phase (`src/transform.py`)
 
 Based on the profiling results, the `clean_and_harmonize_data` module executes the following data standardization pipeline:
 
@@ -74,7 +120,7 @@ Based on the profiling results, the `clean_and_harmonize_data` module executes t
 6. **Record Quality Gate**: Filters out corrupted records containing unparseable dates, non-positive quantities (<= 0), or non-positive unit prices (<= 0).
 
 
-### 7.  Transformation & Integration Phase (`src/transform.py`)
+### Transformation & Integration Phase (`src/transform.py`)
 
 The integration block combines the cleaned transactional DataFrame with raw master tables (`products`, `stores`, `promotions`, and `targets`), computing mandatory business logic:
 
@@ -87,7 +133,7 @@ The integration block combines the cleaned transactional DataFrame with raw mast
 4. **Data Quality Assertions**: Executes strict programmatic runtime assertions validating `sale_line_id` uniqueness, non-null mandatory fields, and non-negative net sales figures prior to data persistence.
 
 
-### 8.  Loading Phase (`src/load.py`)
+### Loading Phase (`src/load.py`)
 
 The loading module persists the final validated dataset into two storage targets:
 
@@ -95,19 +141,23 @@ The loading module persists the final validated dataset into two storage targets
 2. **SQLite Relational Persistence**: Connects to `database/retail_analytics.db` and writes the dataset into the `sales_analytics` table using `if_exists='replace'`. This guarantees pipeline idempotency during repeated runs while preparing the database for downstream analytical SQL queries.
 
 
-### 9.  Analytical Queries Phase (`src/queries.py`)
+### Analytical Queries Phase (`src/queries.py`)
 
-The query execution module connects to `database/retail_analytics.db` to validate that all six target business requirements are answered directly through structured SQL queries:
+The query execution module connects to `database/retail_analytics.db` to validate that all four target business requirements are answered directly through structured SQL queries:
 
-1. **Req 1 (Sales by Region/Store)**: Aggregates units, gross, and net sales grouped by `region` and `store_name`.
-2. **Req 2 (Category Performance)**: Calculates total units and net sales per product `category`.
-3. **Req 3 (Monthly Target Comparison)**: Groups net revenue by `store_name` and `month` to verify goal compliance.
-4. **Req 4 (Temporal Trends)**: Evaluates transaction volume and sales aggregated by `day_name`.
-5. **Req 5 (Promotion Impact)**: Measures applied counts, total discount amounts, and generated net revenue by `promotion_code`.
-6. **Req 6 (Consolidation Integrity)**: Verifies record balance across ingestion points (`city`).
+It includes four main requirements:
 
+1. **Daily Sales and Monthly Trends:** Analysis of transactions, units, and revenue.
 
-## 10. Execution Instructions 📖
+2. **Performance by Category and Product:** Comparison of sales, revenue, and rankings.
+
+3. **Goal Achievement:** Comparison between actual sales and monthly targets.
+
+4. **Campaign Effectiveness:** Analysis of discounts, revenue, performance, and ROI.
+
+The results are stored as separate tables in the SQLite database.
+
+## Execution Instructions 📖
 
 ### 1. Clone the repository
 
@@ -146,8 +196,17 @@ Run the main entry point from the project root:
 python src/main.py
 ```
 
-And that's all!
-
-### Recommendations
+### Recommendations 🖊️
 
 To analize and visualize the database generated install the extension called `db viewer` if you're in VS Code.
+
+## Example/Screenshots of analytical results 📸 
+
+### Campaign Effectiveness
+![Campaign-Effectiveness](images/campaign_effectiveness.jpeg)
+
+### Category Performance
+![Category-Performance](images/category_performance.jpeg)
+
+### Daily Sales Aggregate
+![Daily-Sales-Aggregate](images/daily_sales_aggregate.jpeg)
