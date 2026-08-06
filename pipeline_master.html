@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagrama Arquitectónico — Pipeline ETL Retail Analytics</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  background:#080c14;
+  color:#e2e8f0;
+  display:flex;flex-direction:column;
+}
+.hdr{
+  padding:.6rem 1.5rem;
+  background:linear-gradient(90deg,#0f172a,#1e1b4b);
+  border-bottom:1px solid #1e293b;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;z-index:10;
+}
+.hdr h1{font-size:1rem;font-weight:600;background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hdr-r{display:flex;gap:.4rem}
+.hdr-btn{padding:.3rem .65rem;border-radius:5px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:.72rem;cursor:pointer;transition:all .2s}
+.hdr-btn:hover{background:#334155;color:#f1f5f9;border-color:#60a5fa}
+.wrap{flex:1;position:relative;overflow:hidden;cursor:grab}
+.wrap.drag{cursor:grabbing}
+.cvs{position:absolute;transform-origin:0 0;will-change:transform}
+.tip{position:fixed;z-index:99;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:.6rem .8rem;max-width:320px;font-size:.74rem;color:#cbd5e1;box-shadow:0 8px 32px rgba(0,0,0,.6);pointer-events:none;opacity:0;transition:opacity .15s;line-height:1.4}
+.tip.on{opacity:1}
+.zc{position:absolute;bottom:1rem;right:1rem;display:flex;flex-direction:column;gap:.3rem;z-index:20}
+.zb{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:1rem;cursor:pointer;transition:all .2s}
+.zb:hover{background:#334155;color:#f1f5f9;border-color:#60a5fa}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>Arquitectura del Pipeline ETL — Plataforma Analítica Retail</h1>
+  <div class="hdr-r">
+    <button class="hdr-btn" onclick="fit()">Ajustar</button>
+    <button class="hdr-btn" onclick="rst()">Reset</button>
+  </div>
+</div>
+
+<div class="wrap" id="W">
+<div class="cvs" id="C">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1100" viewBox="0 0 1900 1100" id="dia">
+<defs>
+  <marker id="a1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#475569"/></marker>
+  <marker id="ab" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#3b82f6"/></marker>
+  <marker id="ai" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#6366f1"/></marker>
+  <marker id="av" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#8b5cf6"/></marker>
+  <marker id="ae" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#10b981"/></marker>
+  <marker id="aa" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#f59e0b"/></marker>
+  <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#f43f5e"/></marker>
+  <marker id="ac" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#06b6d4"/></marker>
+  <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#10b981"/></marker>
+  <filter id="ds"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity=".4"/></filter>
+  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0ea5e9" stop-opacity=".06"/><stop offset="100%" stop-color="#0ea5e9" stop-opacity=".01"/></linearGradient>
+  <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity=".06"/><stop offset="100%" stop-color="#3b82f6" stop-opacity=".01"/></linearGradient>
+  <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity=".06"/><stop offset="100%" stop-color="#6366f1" stop-opacity=".01"/></linearGradient>
+  <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8b5cf6" stop-opacity=".06"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity=".01"/></linearGradient>
+  <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10b981" stop-opacity=".06"/><stop offset="100%" stop-color="#10b981" stop-opacity=".01"/></linearGradient>
+  <linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b" stop-opacity=".06"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".01"/></linearGradient>
+  <linearGradient id="g7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f43f5e" stop-opacity=".06"/><stop offset="100%" stop-color="#f43f5e" stop-opacity=".01"/></linearGradient>
+</defs>
+
+<!-- ════════════════ FLOW ARROWS ════════════════ -->
+
+<!-- Sources → Extract -->
+<path d="M190 200 C230 200,250 310,280 310" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#ab)" opacity=".5"/>
+<path d="M190 340 L280 340" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#ab)" opacity=".5"/>
+<path d="M190 480 C230 480,250 370,280 370" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#ab)" opacity=".5"/>
+
+<!-- Extract → Profile -->
+<path d="M450 340 L500 340" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#ab)" opacity=".6"/>
+<text x="475" y="330" font-size="8.5" fill="#64748b" text-anchor="middle">df_raw</text>
+
+<!-- Profile → Clean -->
+<path d="M660 340 L710 340" fill="none" stroke="#6366f1" stroke-width="2.5" marker-end="url(#ai)" opacity=".6"/>
+<text x="685" y="330" font-size="8.5" fill="#64748b" text-anchor="middle">hallazgos</text>
+
+<!-- Clean → Transform -->
+<path d="M870 340 L920 340" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#av)" opacity=".6"/>
+<text x="895" y="330" font-size="8.5" fill="#64748b" text-anchor="middle">df_clean</text>
+
+<!-- Masters → Transform -->
+<path d="M190 680 C400 680,450 680,920 420" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ac)" opacity=".4"/>
+<text x="520" y="668" font-size="8.5" fill="#06b6d4" text-anchor="middle" opacity=".7">LEFT JOINs (products, stores, promotions)</text>
+
+<!-- Transform → Validate -->
+<path d="M1080 340 L1130 340" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#ae)" opacity=".6"/>
+<text x="1105" y="330" font-size="8.5" fill="#64748b" text-anchor="middle">df_integrated</text>
+
+<!-- Validate → Load -->
+<path d="M1280 340 L1330 340" fill="none" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#aa)" opacity=".6"/>
+<text x="1305" y="330" font-size="8.5" fill="#64748b" text-anchor="middle">✓ pass</text>
+
+<!-- Load → CSV out -->
+<path d="M1490 310 C1520 310,1530 215,1560 215" fill="none" stroke="#f43f5e" stroke-width="2" marker-end="url(#ar)" opacity=".5"/>
+
+<!-- Load → SQLite -->
+<path d="M1490 370 C1520 370,1530 460,1560 460" fill="none" stroke="#f43f5e" stroke-width="2.5" marker-end="url(#ar)" opacity=".6"/>
+
+<!-- SQLite → Query -->
+<path d="M1660 520 L1660 570" fill="none" stroke="#06b6d4" stroke-width="2.5" marker-end="url(#ac)" opacity=".6"/>
+<text x="1680" y="550" font-size="8.5" fill="#06b6d4" text-anchor="middle" opacity=".7">SQL</text>
+
+<!-- Query → Results -->
+<path d="M1570 640 C1520 640,1470 700,1420 730" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#ag)" opacity=".5"/>
+<path d="M1570 660 C1520 680,1470 770,1420 800" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#ag)" opacity=".5"/>
+<path d="M1660 680 C1660 710,1650 730,1640 730" fill="none" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)" opacity=".4"/>
+<path d="M1660 680 C1660 780,1650 800,1640 800" fill="none" stroke="#10b981" stroke-width="1.5" marker-end="url(#ag)" opacity=".4"/>
+
+
+<!-- ════════════════ PHASE BACKGROUNDS ════════════════ -->
+
+<rect x="25" y="110" width="180" height="530" rx="12" fill="url(#g1)" stroke="#0ea5e920" stroke-width="1"/>
+<text x="115" y="136" font-size="9.5" fill="#0ea5e9" text-anchor="middle" font-weight="600" letter-spacing=".07em">FUENTES DE DATOS</text>
+
+<rect x="270" y="230" width="190" height="230" rx="12" fill="url(#g2)" stroke="#3b82f620" stroke-width="1"/>
+<text x="365" y="253" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600" letter-spacing=".07em">EXTRACT</text>
+<text x="365" y="243" font-size="7.5" fill="#475569" text-anchor="middle">STEP 1</text>
+
+<rect x="490" y="230" width="180" height="230" rx="12" fill="url(#g3)" stroke="#6366f120" stroke-width="1"/>
+<text x="580" y="253" font-size="9" fill="#6366f1" text-anchor="middle" font-weight="600" letter-spacing=".07em">PROFILE</text>
+<text x="580" y="243" font-size="7.5" fill="#475569" text-anchor="middle">STEP 2</text>
+
+<rect x="700" y="230" width="180" height="230" rx="12" fill="url(#g4)" stroke="#8b5cf620" stroke-width="1"/>
+<text x="790" y="253" font-size="9" fill="#8b5cf6" text-anchor="middle" font-weight="600" letter-spacing=".07em">CLEAN</text>
+<text x="790" y="243" font-size="7.5" fill="#475569" text-anchor="middle">STEP 3</text>
+
+<rect x="910" y="230" width="180" height="230" rx="12" fill="url(#g5)" stroke="#10b98120" stroke-width="1"/>
+<text x="1000" y="253" font-size="9" fill="#10b981" text-anchor="middle" font-weight="600" letter-spacing=".07em">TRANSFORM</text>
+<text x="1000" y="243" font-size="7.5" fill="#475569" text-anchor="middle">STEP 4</text>
+
+<rect x="1120" y="230" width="170" height="230" rx="12" fill="url(#g6)" stroke="#f59e0b20" stroke-width="1"/>
+<text x="1205" y="253" font-size="9" fill="#f59e0b" text-anchor="middle" font-weight="600" letter-spacing=".07em">VALIDATE</text>
+<text x="1205" y="243" font-size="7.5" fill="#475569" text-anchor="middle">STEP 4b</text>
+
+<rect x="1320" y="230" width="180" height="230" rx="12" fill="url(#g7)" stroke="#f43f5e20" stroke-width="1"/>
+<text x="1410" y="253" font-size="9" fill="#f43f5e" text-anchor="middle" font-weight="600" letter-spacing=".07em">LOAD</text>
+<text x="1410" y="243" font-size="7.5" fill="#475569" text-anchor="middle">STEP 5</text>
+
+
+<!-- ════════════════ COMPONENT BOXES ════════════════ -->
+
+<!-- ── CSV Cali ── -->
+<g class="nd" data-t="Transacciones de Cali en CSV. Columnas en inglés (esquema estándar). Leído con pd.read_csv(). Archivo: data/raw/sales_cali.csv">
+  <rect x="42" y="162" width="150" height="76" rx="9" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.4" filter="url(#ds)"/>
+  <text x="72" y="192" font-size="18">📄</text>
+  <text x="98" y="192" font-size="11.5" fill="#f1f5f9" font-weight="600">CSV</text>
+  <text x="117" y="210" font-size="9.5" fill="#94a3b8" text-anchor="middle">sales_cali.csv</text>
+  <text x="117" y="227" font-size="8.5" fill="#0ea5e9" text-anchor="middle">Cali</text>
+</g>
+
+<!-- ── JSON Bogotá ── -->
+<g class="nd" data-t="Transacciones de Bogotá en JSON. Columnas en español: id_linea, fecha, sucursal, codigo_producto, unidades, precio, promocion, medio_pago. Leído con json.load(). Archivo: data/raw/sales_bogota.json">
+  <rect x="42" y="302" width="150" height="76" rx="9" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.4" filter="url(#ds)"/>
+  <text x="72" y="333" font-size="18">🗂️</text>
+  <text x="98" y="333" font-size="11.5" fill="#f1f5f9" font-weight="600">JSON</text>
+  <text x="117" y="350" font-size="9.5" fill="#94a3b8" text-anchor="middle">sales_bogota.json</text>
+  <text x="117" y="367" font-size="8.5" fill="#0ea5e9" text-anchor="middle">Bogotá</text>
+</g>
+
+<!-- ── XML Medellín ── -->
+<g class="nd" data-t="Transacciones de Medellín en XML. Tags: line_id, date, branch_code, sku, units, unit_value, promo_code, payment. Parseado con xml.etree.ElementTree. Archivo: data/raw/sales_medellin.xml">
+  <rect x="42" y="442" width="150" height="76" rx="9" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.4" filter="url(#ds)"/>
+  <text x="72" y="473" font-size="18">📊</text>
+  <text x="98" y="473" font-size="11.5" fill="#f1f5f9" font-weight="600">XML</text>
+  <text x="117" y="490" font-size="9.5" fill="#94a3b8" text-anchor="middle">sales_medellin.xml</text>
+  <text x="117" y="507" font-size="8.5" fill="#0ea5e9" text-anchor="middle">Medellín</text>
+</g>
+
+<!-- ── Tablas Maestras ── -->
+<g class="nd" data-t="4 tablas maestras CSV: products.csv (product_id, product_name, category), stores.csv (store_id, store_name, city, region), promotions.csv (promotion_code, campaign_name, discount_rate, start/end_date), monthly_targets.csv (store_id, month, sales_target). Leídas con pd.read_csv().">
+  <rect x="42" y="610" width="150" height="115" rx="9" fill="#1e293b" stroke="#06b6d4" stroke-width="1.4" filter="url(#ds)"/>
+  <text x="117" y="636" font-size="10.5" fill="#06b6d4" text-anchor="middle" font-weight="600">Tablas Maestras</text>
+  <text x="117" y="656" font-size="9" fill="#94a3b8" text-anchor="middle">products.csv</text>
+  <text x="117" y="670" font-size="9" fill="#94a3b8" text-anchor="middle">stores.csv</text>
+  <text x="117" y="684" font-size="9" fill="#94a3b8" text-anchor="middle">promotions.csv</text>
+  <text x="117" y="698" font-size="9" fill="#94a3b8" text-anchor="middle">monthly_targets.csv</text>
+  <text x="117" y="716" font-size="7.5" fill="#475569" text-anchor="middle">pd.read_csv() × 4</text>
+</g>
+
+<!-- ── EXTRACT ── -->
+<g class="nd" data-t="STEP 1 — Lee CSV (pd.read_csv), JSON (json.load), XML (xml.etree.ElementTree). Renombra columnas al esquema común: sale_line_id, sale_date, store_id, product_id, quantity, unit_price, promotion_code, payment_method. pd.concat() → df_raw. Archivo: src/extract.py">
+  <rect x="290" y="278" width="155" height="125" rx="9" fill="#1e293b" stroke="#3b82f6" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="312" cy="302" r="11" fill="#3b82f620" stroke="#3b82f6" stroke-width="1"/>
+  <text x="312" y="306" font-size="8.5" fill="#3b82f6" text-anchor="middle" font-weight="700">1</text>
+  <text x="367" y="306" font-size="11.5" fill="#f1f5f9" font-weight="600">extract.py</text>
+  <line x1="298" y1="320" x2="437" y2="320" stroke="#334155" stroke-width=".5"/>
+  <text x="367" y="338" font-size="9" fill="#94a3b8" text-anchor="middle">CSV + JSON + XML</text>
+  <text x="367" y="354" font-size="9" fill="#94a3b8" text-anchor="middle">→ Esquema común</text>
+  <text x="367" y="370" font-size="9" fill="#94a3b8" text-anchor="middle">→ pd.concat()</text>
+  <text x="367" y="393" font-size="8" fill="#3b82f6" text-anchor="middle">Output: df_raw</text>
+</g>
+
+<!-- ── PROFILE ── -->
+<g class="nd" data-t="STEP 2 — Audita df_raw: nulos por columna, sale_line_id duplicados, quantity ≤0 o no numéricas, unit_price ≤0 o no numéricos, fechas no parseables. Genera profiling_summary e imprime reporte en consola. Archivo: src/transform.py → profile_raw_data()">
+  <rect x="510" y="278" width="145" height="125" rx="9" fill="#1e293b" stroke="#6366f1" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="530" cy="302" r="11" fill="#6366f120" stroke="#6366f1" stroke-width="1"/>
+  <text x="530" y="306" font-size="8.5" fill="#6366f1" text-anchor="middle" font-weight="700">2</text>
+  <text x="582" y="306" font-size="11.5" fill="#f1f5f9" font-weight="600">Profile</text>
+  <line x1="518" y1="320" x2="647" y2="320" stroke="#334155" stroke-width=".5"/>
+  <text x="582" y="338" font-size="9" fill="#94a3b8" text-anchor="middle">Nulos · Duplicados</text>
+  <text x="582" y="354" font-size="9" fill="#94a3b8" text-anchor="middle">Negativos · Fechas</text>
+  <text x="582" y="370" font-size="9" fill="#94a3b8" text-anchor="middle">→ Reporte consola</text>
+  <text x="582" y="393" font-size="8" fill="#6366f1" text-anchor="middle">Output: summary dict</text>
+</g>
+
+<!-- ── CLEAN ── -->
+<g class="nd" data-t="STEP 3 — strip()+upper() en IDs, parse 3 formatos de fecha (ISO, Latino, US), pd.to_numeric(errors='coerce'), fillna('NONE') en promotion_code, dedup por sale_line_id, Quality Gate: rechaza quantity ≤0, unit_price ≤0, fechas nulas. Archivo: src/transform.py → clean_and_harmonize_data()">
+  <rect x="720" y="278" width="145" height="125" rx="9" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="740" cy="302" r="11" fill="#8b5cf620" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="740" y="306" font-size="8.5" fill="#8b5cf6" text-anchor="middle" font-weight="700">3</text>
+  <text x="792" y="306" font-size="11.5" fill="#f1f5f9" font-weight="600">Clean</text>
+  <line x1="728" y1="320" x2="857" y2="320" stroke="#334155" stroke-width=".5"/>
+  <text x="792" y="338" font-size="9" fill="#94a3b8" text-anchor="middle">Estandarizar texto</text>
+  <text x="792" y="354" font-size="9" fill="#94a3b8" text-anchor="middle">Armonizar fechas</text>
+  <text x="792" y="370" font-size="9" fill="#94a3b8" text-anchor="middle">Dedup · Quality Gate</text>
+  <text x="792" y="393" font-size="8" fill="#8b5cf6" text-anchor="middle">Output: df_clean</text>
+</g>
+
+<!-- ── TRANSFORM ── -->
+<g class="nd" data-t="STEP 4 — LEFT JOIN con products (product_name, category), stores (store_name, city, region), promotions (discount_rate). Cálculos: gross_sales = quantity × unit_price, discount_amount = gross_sales × (discount_rate/100), net_sales = gross_sales − discount_amount. Temporales: year, month, week, day_name. Archivo: src/transform.py → transform_and_integrate_data()">
+  <rect x="930" y="278" width="145" height="125" rx="9" fill="#1e293b" stroke="#10b981" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="950" cy="302" r="11" fill="#10b98120" stroke="#10b981" stroke-width="1"/>
+  <text x="950" y="306" font-size="8.5" fill="#10b981" text-anchor="middle" font-weight="700">4</text>
+  <text x="1002" y="306" font-size="11.5" fill="#f1f5f9" font-weight="600">Transform</text>
+  <line x1="938" y1="320" x2="1067" y2="320" stroke="#334155" stroke-width=".5"/>
+  <text x="1002" y="338" font-size="9" fill="#94a3b8" text-anchor="middle">JOINs × 3 maestras</text>
+  <text x="1002" y="354" font-size="9" fill="#94a3b8" text-anchor="middle">gross · discount · net</text>
+  <text x="1002" y="370" font-size="9" fill="#94a3b8" text-anchor="middle">year · month · week</text>
+  <text x="1002" y="393" font-size="8" fill="#10b981" text-anchor="middle">Output: df_integrated</text>
+</g>
+
+<!-- ── VALIDATE ── -->
+<g class="nd" data-t="STEP 4b — Quality Gate final. assert sale_line_id.is_unique, net_sales sin nulos, net_sales ≥ 0, store_name sin nulos (FK post-JOIN), product_name sin nulos (FK post-JOIN). Si falla → AssertionError detiene el pipeline. Archivo: src/validate.py → validate_integrated_data()">
+  <rect x="1138" y="278" width="140" height="125" rx="9" fill="#1e293b" stroke="#f59e0b" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="1158" cy="302" r="11" fill="#f59e0b20" stroke="#f59e0b" stroke-width="1"/>
+  <text x="1158" y="306" font-size="7.5" fill="#f59e0b" text-anchor="middle" font-weight="700">4b</text>
+  <text x="1208" y="306" font-size="11.5" fill="#f1f5f9" font-weight="600">Validate</text>
+  <line x1="1146" y1="320" x2="1270" y2="320" stroke="#334155" stroke-width=".5"/>
+  <text x="1208" y="338" font-size="9" fill="#94a3b8" text-anchor="middle">PK unicidad</text>
+  <text x="1208" y="354" font-size="9" fill="#94a3b8" text-anchor="middle">net_sales ≥ 0</text>
+  <text x="1208" y="370" font-size="9" fill="#94a3b8" text-anchor="middle">FK integrity</text>
+  <text x="1208" y="393" font-size="8" fill="#f59e0b" text-anchor="middle">Halt on failure</text>
+</g>
+
+<!-- ── LOAD ── -->
+<g class="nd" data-t="STEP 5+5b — CSV: data/processed/integrated_sales.csv (to_csv, index=False, UTF-8). SQLite: database/retail_analytics.db tabla 'sales_analytics' (to_sql, if_exists='replace'). Carga 4 tablas maestras a SQLite. Archivo: src/load.py">
+  <rect x="1338" y="278" width="150" height="125" rx="9" fill="#1e293b" stroke="#f43f5e" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="1360" cy="302" r="11" fill="#f43f5e20" stroke="#f43f5e" stroke-width="1"/>
+  <text x="1360" y="306" font-size="8.5" fill="#f43f5e" text-anchor="middle" font-weight="700">5</text>
+  <text x="1413" y="306" font-size="11.5" fill="#f1f5f9" font-weight="600">Load</text>
+  <line x1="1346" y1="320" x2="1480" y2="320" stroke="#334155" stroke-width=".5"/>
+  <text x="1413" y="338" font-size="9" fill="#94a3b8" text-anchor="middle">→ CSV integrado</text>
+  <text x="1413" y="354" font-size="9" fill="#94a3b8" text-anchor="middle">→ SQLite DB</text>
+  <text x="1413" y="370" font-size="9" fill="#94a3b8" text-anchor="middle">+ maestras a SQLite</text>
+  <text x="1413" y="393" font-size="8" fill="#f43f5e" text-anchor="middle">if_exists='replace'</text>
+</g>
+
+<!-- ── CSV Output ── -->
+<g class="nd" data-t="Archivo CSV plano con dataset integrado completo. Backup / consumo flat-file. Ruta: data/processed/integrated_sales.csv">
+  <rect x="1560" y="175" width="165" height="68" rx="9" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" filter="url(#ds)"/>
+  <text x="1585" y="205" font-size="16">📁</text>
+  <text x="1610" y="205" font-size="10.5" fill="#f1f5f9" font-weight="600">CSV Integrado</text>
+  <text x="1642" y="225" font-size="8.5" fill="#94a3b8" text-anchor="middle">integrated_sales.csv</text>
+</g>
+
+<!-- ── SQLite ── -->
+<g class="nd" data-t="Base de datos SQLite con 11 tablas: sales_analytics (principal), products, stores, promotions, monthly_targets (maestras), REQ1_daily_sales_aggregate, REQ1_monthly_trend, REQ2_category_performance, REQ2_product_breakdown, REQ3_compliance_facts, REQ4_campaign_effectiveness. Ruta: database/retail_analytics.db">
+  <rect x="1560" y="420" width="200" height="95" rx="9" fill="#1e293b" stroke="#f43f5e" stroke-width="1.6" filter="url(#ds)"/>
+  <text x="1590" y="458" font-size="18">🗄️</text>
+  <text x="1620" y="455" font-size="11" fill="#f1f5f9" font-weight="600">SQLite</text>
+  <text x="1660" y="475" font-size="9.5" fill="#94a3b8" text-anchor="middle">retail_analytics.db</text>
+  <text x="1660" y="495" font-size="8.5" fill="#f43f5e" text-anchor="middle">11 tablas totales</text>
+  <text x="1660" y="508" font-size="7.5" fill="#475569" text-anchor="middle">sales_analytics + maestras + resultados</text>
+</g>
+
+<!-- ── QUERY ── -->
+<g class="nd" data-t="STEP 6 (Activity 11) — 6 consultas SQL: REQ1 Daily sales + Monthly trend (GROUP BY, SUM, AVG). REQ2 Category + Product ranking (RANK() OVER, PARTITION BY). REQ3 Meta compliance (CASE WHEN ACHIEVED/NEAR/BELOW). REQ4 Campaign ROI (BETWEEN dates). Guarda resultados como tablas nuevas en SQLite. Archivo: src/queries.py → run_analytical_queries()">
+  <rect x="1560" y="575" width="200" height="110" rx="9" fill="#1e293b" stroke="#06b6d4" stroke-width="1.4" filter="url(#ds)"/>
+  <circle cx="1585" cy="600" r="11" fill="#06b6d420" stroke="#06b6d4" stroke-width="1"/>
+  <text x="1585" y="604" font-size="8.5" fill="#06b6d4" text-anchor="middle" font-weight="700">6</text>
+  <text x="1660" y="604" font-size="11.5" fill="#f1f5f9" font-weight="600">Query (Activity 11)</text>
+  <line x1="1570" y1="618" x2="1750" y2="618" stroke="#334155" stroke-width=".5"/>
+  <text x="1660" y="638" font-size="9" fill="#94a3b8" text-anchor="middle">6 consultas SQL analíticas</text>
+  <text x="1660" y="655" font-size="9" fill="#94a3b8" text-anchor="middle">RANK · CASE WHEN · BETWEEN</text>
+  <text x="1660" y="675" font-size="8" fill="#06b6d4" text-anchor="middle">src/queries.py</text>
+</g>
+
+<!-- ── RESULTS ── -->
+<rect x="1340" y="720" width="440" height="140" rx="12" fill="#10b98108" stroke="#10b98118" stroke-width="1"/>
+<text x="1560" y="746" font-size="9.5" fill="#10b981" text-anchor="middle" font-weight="600" letter-spacing=".07em">RESULTADOS ANALÍTICOS (Lab 1A — Activity 11)</text>
+
+<g class="nd" data-t="REQ 1: Ventas diarias + tendencia mensual por tienda, ciudad, región. Métricas: transacciones, unidades, gross, discounts, net, avg_ticket.">
+  <rect x="1360" y="760" width="190" height="38" rx="7" fill="#1e293b" stroke="#10b981" stroke-width="1" filter="url(#ds)"/>
+  <text x="1455" y="777" font-size="9" fill="#f1f5f9" text-anchor="middle" font-weight="600">REQ 1: Ventas Diarias + Tendencia</text>
+  <text x="1455" y="791" font-size="7.5" fill="#94a3b8" text-anchor="middle">GROUP BY · SUM · AVG · strftime</text>
+</g>
+<g class="nd" data-t="REQ 2: Rendimiento por categoría y producto. RANK() OVER, % participación, ranking dentro de categoría con PARTITION BY.">
+  <rect x="1570" y="760" width="190" height="38" rx="7" fill="#1e293b" stroke="#10b981" stroke-width="1" filter="url(#ds)"/>
+  <text x="1665" y="777" font-size="9" fill="#f1f5f9" text-anchor="middle" font-weight="600">REQ 2: Categorías + Ranking</text>
+  <text x="1665" y="791" font-size="7.5" fill="#94a3b8" text-anchor="middle">RANK() OVER · PARTITION BY</text>
+</g>
+<g class="nd" data-t="REQ 3: Cumplimiento de metas. Cruza net_sales vs monthly_targets. ACHIEVED (≥100%), NEAR TARGET (≥80%), BELOW TARGET. CASE WHEN + COALESCE.">
+  <rect x="1360" y="810" width="190" height="38" rx="7" fill="#1e293b" stroke="#10b981" stroke-width="1" filter="url(#ds)"/>
+  <text x="1455" y="827" font-size="9" fill="#f1f5f9" text-anchor="middle" font-weight="600">REQ 3: Metas vs Realidad</text>
+  <text x="1455" y="841" font-size="7.5" fill="#94a3b8" text-anchor="middle">CASE WHEN · COALESCE · JOIN</text>
+</g>
+<g class="nd" data-t="REQ 4: Efectividad de campañas. Filtra ventas BETWEEN start_date y end_date. ROI = (net_sales − discount_cost) / discount_cost × 100.">
+  <rect x="1570" y="810" width="190" height="38" rx="7" fill="#1e293b" stroke="#10b981" stroke-width="1" filter="url(#ds)"/>
+  <text x="1665" y="827" font-size="9" fill="#f1f5f9" text-anchor="middle" font-weight="600">REQ 4: ROI de Promociones</text>
+  <text x="1665" y="841" font-size="7.5" fill="#94a3b8" text-anchor="middle">BETWEEN · NULLIF · ROI</text>
+</g>
+
+<!-- ── ORCHESTRATOR ── -->
+<rect x="380" y="155" width="420" height="28" rx="6" fill="#3b82f610" stroke="#3b82f620" stroke-width="1"/>
+<text x="590" y="174" font-size="9" fill="#3b82f6" text-anchor="middle" font-weight="600">▸ Orquestador: src/main.py → run_pipeline() → python src/main.py</text>
+
+<!-- ── TECH STACK ── -->
+<rect x="270" y="770" width="600" height="95" rx="12" fill="#1e293b08" stroke="#33415530" stroke-width="1"/>
+<text x="570" y="795" font-size="9" fill="#64748b" text-anchor="middle" font-weight="600" letter-spacing=".07em">STACK TECNOLÓGICO (verificado en requirements.txt + código)</text>
+
+<rect x="290" y="810" width="75" height="34" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+<text x="327" y="826" font-size="9.5" fill="#f1f5f9" text-anchor="middle" font-weight="600">Python</text>
+<text x="327" y="839" font-size="7.5" fill="#64748b" text-anchor="middle">3.9+</text>
+
+<rect x="378" y="810" width="75" height="34" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+<text x="415" y="826" font-size="9.5" fill="#f1f5f9" text-anchor="middle" font-weight="600">Pandas</text>
+<text x="415" y="839" font-size="7.5" fill="#64748b" text-anchor="middle">3.0.5</text>
+
+<rect x="466" y="810" width="75" height="34" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+<text x="503" y="826" font-size="9.5" fill="#f1f5f9" text-anchor="middle" font-weight="600">NumPy</text>
+<text x="503" y="839" font-size="7.5" fill="#64748b" text-anchor="middle">2.5.1</text>
+
+<rect x="554" y="810" width="75" height="34" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+<text x="591" y="826" font-size="9.5" fill="#f1f5f9" text-anchor="middle" font-weight="600">SQLite3</text>
+<text x="591" y="839" font-size="7.5" fill="#64748b" text-anchor="middle">stdlib</text>
+
+<rect x="642" y="810" width="65" height="34" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+<text x="674" y="826" font-size="9.5" fill="#f1f5f9" text-anchor="middle" font-weight="600">lxml</text>
+<text x="674" y="839" font-size="7.5" fill="#64748b" text-anchor="middle">≥4.9</text>
+
+<rect x="720" y="810" width="100" height="34" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+<text x="770" y="826" font-size="9.5" fill="#f1f5f9" text-anchor="middle" font-weight="600">Git + GitHub</text>
+<text x="770" y="839" font-size="7.5" fill="#64748b" text-anchor="middle">VCS</text>
+
+<!-- ── Leyenda ── -->
+<rect x="30" y="780" width="200" height="175" rx="10" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+<text x="130" y="803" font-size="9" fill="#64748b" text-anchor="middle" font-weight="600" letter-spacing=".06em">LEYENDA</text>
+<circle cx="52" cy="822" r="5" fill="#0ea5e9"/><text x="65" y="826" font-size="8.5" fill="#94a3b8">Fuentes de datos (CSV/JSON/XML)</text>
+<circle cx="52" cy="842" r="5" fill="#3b82f6"/><text x="65" y="846" font-size="8.5" fill="#94a3b8">Extracción (extract.py)</text>
+<circle cx="52" cy="862" r="5" fill="#6366f1"/><text x="65" y="866" font-size="8.5" fill="#94a3b8">Perfilamiento (transform.py)</text>
+<circle cx="52" cy="882" r="5" fill="#8b5cf6"/><text x="65" y="886" font-size="8.5" fill="#94a3b8">Limpieza (transform.py)</text>
+<circle cx="52" cy="902" r="5" fill="#10b981"/><text x="65" y="906" font-size="8.5" fill="#94a3b8">Transformación (transform.py)</text>
+<circle cx="52" cy="922" r="5" fill="#f59e0b"/><text x="65" y="926" font-size="8.5" fill="#94a3b8">Validación (validate.py)</text>
+<circle cx="52" cy="942" r="5" fill="#f43f5e"/><text x="65" y="946" font-size="8.5" fill="#94a3b8">Carga (load.py) / Almacenamiento</text>
+
+</svg>
+</div>
+
+<div class="tip" id="T"></div>
+<div class="zc">
+  <button class="zb" onclick="zi()">+</button>
+  <button class="zb" onclick="zo()">−</button>
+</div>
+</div>
+
+<script>
+(function(){
+  const W=document.getElementById('W'),C=document.getElementById('C'),T=document.getElementById('T');
+  let s=.7,tx=0,ty=0,pan=false,sx,sy;
+  function ap(){C.style.transform=`translate(${tx}px,${ty}px) scale(${s})`}
+  ap();
+  W.addEventListener('mousedown',e=>{if(e.target.closest('.zb')||e.target.closest('.hdr-btn'))return;pan=true;sx=e.clientX-tx;sy=e.clientY-ty;W.classList.add('drag')});
+  window.addEventListener('mousemove',e=>{if(!pan)return;tx=e.clientX-sx;ty=e.clientY-sy;ap()});
+  window.addEventListener('mouseup',()=>{pan=false;W.classList.remove('drag')});
+  W.addEventListener('wheel',e=>{e.preventDefault();const r=W.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,wx=(mx-tx)/s,wy=(my-ty)/s,d=e.deltaY<0?1.08:1/1.08;s=Math.min(Math.max(s*d,.2),3);tx=mx-wx*s;ty=my-wy*s;ap()},{passive:false});
+  window.zi=()=>{s=Math.min(s*1.15,3);ap()};
+  window.zo=()=>{s=Math.max(s/1.15,.2);ap()};
+  window.rst=()=>{s=.7;tx=0;ty=0;ap()};
+  window.fit=()=>{const r=W.getBoundingClientRect();s=Math.min(r.width/1900,r.height/1000)*.92;tx=(r.width-1900*s)/2;ty=(r.height-1000*s)/2;ap()};
+  document.querySelectorAll('.nd').forEach(n=>{
+    n.addEventListener('mouseenter',()=>{const t=n.getAttribute('data-t');if(!t)return;T.innerHTML=t.replace(/\n/g,'<br>');T.classList.add('on')});
+    n.addEventListener('mousemove',e=>{let x=e.clientX+14,y=e.clientY+14;if(x+320>window.innerWidth)x=e.clientX-330;if(y+180>window.innerHeight)y=e.clientY-180;T.style.left=x+'px';T.style.top=y+'px'});
+    n.addEventListener('mouseleave',()=>T.classList.remove('on'));
+  });
+  window.addEventListener('load',()=>setTimeout(fit,150));
+})();
+</script>
+</body>
+</html>
