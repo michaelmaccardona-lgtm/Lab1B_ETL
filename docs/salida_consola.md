@@ -3,7 +3,7 @@
 A continuación documentamos la salida completa de la consola dividida por secciones. Agregamos una explicación en lenguaje natural seguida por el resultado exacto que arrojó nuestro sistema al ejecutarse.
 
 ## 1. El inicio y Perfilamiento de Datos
-Lo primero que hace nuestro sistema es extraer los datos de las tres ciudades. En esta parte de la consola imprimimos un reporte para saber cuántos datos llegaron sucios (por ejemplo, 522 fechas mal escritas o 3 registros duplicados) y cuántos registros limpios logramos rescatar para trabajar.
+Lo primero que hace nuestro sistema es extraer los datos de las tres ciudades. En esta parte de la consola imprimimos un reporte para saber cuántos datos llegaron sucios (por ejemplo, 522 fechas mal escritas o 3 registros duplicados) y cuántos registros limpios logramos rescatar para trabajar. Adicionalmente, mostramos el proceso de integración donde cruzamos las ventas con las tablas maestras, confirmando que logramos integrar exitosamente 15 productos pertenecientes a 4 categorías distintas.
 ```text
 ======================================================================
           STARTING RETAIL ANALYTICS ETL PIPELINE RUN
