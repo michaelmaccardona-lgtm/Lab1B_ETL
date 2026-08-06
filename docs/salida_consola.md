@@ -47,7 +47,9 @@ Total Raw Rows Ingested: 763
  -> Clean transactions remaining: 755 records.
 
 [STEP 4] Transforming and integrating with master tables...
- -> Integrated transactions ready: 755 records.
+  -> Operación: Cruzando ventas con tablas maestras usando LEFT JOIN.
+  -> Se detectaron e integraron 15 productos pertenecientes a 4 categorías distintas.
+  -> Transacciones integradas listas: 755 registros.
 
 [VALIDATE] Ejecutando assertions de calidad de datos...
  -> Todas las validaciones de calidad pasaron con éxito (Data is clean and robust).

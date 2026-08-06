@@ -46,8 +46,14 @@ def run_pipeline():
     # 4. TRANSFORMATION & INTEGRATION (Transformación)
     # Cruzamos (JOIN) las transacciones limpias con las tablas maestras para calcular ventas netas, brutas y descuentos.
     print("\n[STEP 4] Transforming and integrating with master tables...")
+    
+    num_products = len(ref_data['products'])
+    num_categories = ref_data['products']['category'].nunique()
+    print(f"  -> Operación: Cruzando ventas con tablas maestras usando LEFT JOIN.")
+    print(f"  -> Se detectaron e integraron {num_products} productos pertenecientes a {num_categories} categorías distintas.")
+    
     df_integrated = transform_and_integrate_data(df_clean, ref_data)
-    print(f" -> Integrated transactions ready: {len(df_integrated)} records.")
+    print(f"  -> Transacciones integradas listas: {len(df_integrated)} registros.")
 
     # 4b. VALIDATION (Validación)
     # Verificamos matemáticamente que todo haya quedado bien cruzado (Quality Gate final).
